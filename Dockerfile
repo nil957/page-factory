@@ -16,6 +16,9 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Generate Prisma client
+RUN npx prisma generate
+
 RUN npm run build
 
 # Production image, copy all the files and run next
