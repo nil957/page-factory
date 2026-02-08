@@ -4,17 +4,21 @@ services:
   page-factory:
     build: .
     ports:
-      - "3000:3000"
+      - "3080:3000"
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/page_factory
-      - JWT_SECRET=your-secret-key-change-in-production
+      - DATABASE_URL=postgresql://silicon:silicon_dev_pwd@sf-postgres:5432/page_factory?schema=public
+      - JWT_SECRET=pf-jwt-secret-2026-production-key
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PROJECTS_DIR=/app/projects
     volumes:
       - projects_data:/app/projects
+    networks:
+      - silicon-friends-app_default
     restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
 volumes:
   projects_data:
+
+networks:
+  silicon-friends-app_default:
+    external: true
