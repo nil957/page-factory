@@ -100,13 +100,6 @@ function handleToolUse(
   return `未找到组件 "${componentName}"。请检查组件名是否正确。`
 }
 
-function extractTextFromResponse(response: Anthropic.Message): string {
-  return response.content
-    .filter((block): block is Anthropic.TextBlock => block.type === 'text')
-    .map(block => block.text)
-    .join('')
-}
-
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getSession()
@@ -184,72 +177,109 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     await prisma.message.create({ data: { conversationId: conversation.id, role: 'user', content: message } })
     
     const anthropic = new Anthropic({ apiKey })
-    let response = await anthropic.messages.create({ 
-      model: 'claude-sonnet-4-20250514', 
-      max_tokens: 4096, 
-      system: systemPrompt, 
-      messages: historyMessages,
-      tools: [LOOKUP_COMPONENT_TOOL]
+    const conversationId = conversation.id
+    const localPath = project.localPath
+
+    const stream = new ReadableStream({
+      async start(controller) {
+        const encoder = new TextEncoder()
+        const send = (data: Record<string, unknown>) => {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`))
+        }
+
+        try {
+          let fullText = ''
+          const MAX_TOOL_ITERATIONS = 3
+          let iterations = 0
+          let needsMoreIterations = true
+
+          while (needsMoreIterations && iterations <= MAX_TOOL_ITERATIONS) {
+            needsMoreIterations = false
+
+            const messageStream = anthropic.messages.stream({
+              model: 'claude-sonnet-4-20250514',
+              max_tokens: 4096,
+              system: systemPrompt,
+              messages: historyMessages,
+              tools: [LOOKUP_COMPONENT_TOOL],
+            })
+
+            let currentToolUse: { id: string; name: string; inputJson: string } | null = null
+
+            for await (const event of messageStream) {
+              if (event.type === 'content_block_start') {
+                if (event.content_block.type === 'tool_use') {
+                  currentToolUse = { id: event.content_block.id, name: event.content_block.name, inputJson: '' }
+                  send({ type: 'tool_call', name: event.content_block.name })
+                }
+              } else if (event.type === 'content_block_delta') {
+                if (event.delta.type === 'text_delta') {
+                  fullText += event.delta.text
+                  send({ type: 'token', text: event.delta.text })
+                } else if (event.delta.type === 'input_json_delta' && currentToolUse) {
+                  currentToolUse.inputJson += event.delta.partial_json
+                }
+              } else if (event.type === 'content_block_stop' && currentToolUse) {
+                let toolInput: Record<string, unknown> = {}
+                try { toolInput = JSON.parse(currentToolUse.inputJson) } catch {}
+
+                const toolResult = handleToolUse(currentToolUse.name, toolInput, projectType)
+                send({ type: 'tool_result', name: currentToolUse.name, result: toolResult.slice(0, 200) })
+
+                const finalMessage = await messageStream.finalMessage()
+                historyMessages.push({ role: 'assistant', content: finalMessage.content })
+                historyMessages.push({
+                  role: 'user',
+                  content: [{ type: 'tool_result', tool_use_id: currentToolUse.id, content: toolResult }]
+                })
+
+                currentToolUse = null
+                needsMoreIterations = true
+                iterations++
+                break
+              }
+            }
+
+            if (!needsMoreIterations || iterations > MAX_TOOL_ITERATIONS) break
+          }
+
+          const readMatches = fullText.matchAll(/<read_file path="([^"]+)"\s*\/>/g)
+          for (const match of readMatches) {
+            try {
+              const content = await readProjectFile(localPath, match[1])
+              fullText = fullText.replace(match[0], '```\n'+content+'\n```')
+            } catch {
+              fullText = fullText.replace(match[0], '[读取失败]')
+            }
+          }
+
+          const writeMatches = fullText.matchAll(/<write_file path="([^"]+)">([\s\S]*?)<\/write_file>/g)
+          for (const match of writeMatches) {
+            try {
+              await writeProjectFile(localPath, match[1], match[2])
+              fullText = fullText.replace(match[0], '[已写入:'+match[1]+']')
+            } catch {
+              fullText = fullText.replace(match[0], '[写入失败]')
+            }
+          }
+
+          await prisma.message.create({ data: { conversationId: conversationId, role: 'assistant', content: fullText } })
+          send({ type: 'done', fullText })
+        } catch (error) {
+          send({ type: 'error', error: error instanceof Error ? error.message : 'AI 响应失败' })
+        } finally {
+          controller.close()
+        }
+      }
     })
-    
-    const MAX_TOOL_ITERATIONS = 3
-    let iterations = 0
-    while (response.stop_reason === 'tool_use' && iterations < MAX_TOOL_ITERATIONS) {
-      const toolUseBlock = response.content.find(
-        (c): c is Anthropic.ToolUseBlock => c.type === 'tool_use'
-      )
-      if (!toolUseBlock) break
 
-      const toolResult = handleToolUse(
-        toolUseBlock.name,
-        toolUseBlock.input as Record<string, unknown>,
-        projectType
-      )
-
-      historyMessages.push({ role: 'assistant', content: response.content })
-      historyMessages.push({
-        role: 'user',
-        content: [{
-          type: 'tool_result',
-          tool_use_id: toolUseBlock.id,
-          content: toolResult
-        }]
-      })
-
-      response = await anthropic.messages.create({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4096,
-        system: systemPrompt,
-        messages: historyMessages,
-        tools: [LOOKUP_COMPONENT_TOOL]
-      })
-      iterations++
-    }
-    
-    let assistantMessage = extractTextFromResponse(response)
-    
-    const readMatches = assistantMessage.matchAll(/<read_file path="([^"]+)"\s*\/>/g)
-    for (const match of readMatches) { 
-      try { 
-        const content = await readProjectFile(project.localPath, match[1])
-        assistantMessage = assistantMessage.replace(match[0], '```\n'+content+'\n```') 
-      } catch { 
-        assistantMessage = assistantMessage.replace(match[0], '[读取失败]') 
-      } 
-    }
-    
-    const writeMatches = assistantMessage.matchAll(/<write_file path="([^"]+)">([\s\S]*?)<\/write_file>/g)
-    for (const match of writeMatches) { 
-      try { 
-        await writeProjectFile(project.localPath, match[1], match[2])
-        assistantMessage = assistantMessage.replace(match[0], '[已写入:'+match[1]+']') 
-      } catch { 
-        assistantMessage = assistantMessage.replace(match[0], '[写入失败]') 
-      } 
-    }
-    
-    await prisma.message.create({ data: { conversationId: conversation.id, role: 'assistant', content: assistantMessage } })
-    return NextResponse.json({ message: assistantMessage })
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      }
+    })
   } catch (error) { 
     console.error('Chat error:', error)
     return NextResponse.json({ error: 'AI 响应失败' }, { status: 500 }) 
