@@ -8,12 +8,42 @@ if (!GITLAB_TOKEN) {
 
 const headers = { 'PRIVATE-TOKEN': GITLAB_TOKEN };
 
-export async function getTree(projectPath: string, dirPath: string, ref = 'main'): Promise<Array<{ name: string; type: string; path: string }>> {
+export interface TreeItem {
+  name: string;
+  type: string;  // 'blob' | 'tree'
+  path: string;
+}
+
+export async function getTree(projectPath: string, dirPath: string, ref = 'main'): Promise<TreeItem[]> {
   const encoded = encodeURIComponent(projectPath);
   const url = `${GITLAB_URL}/api/v4/projects/${encoded}/repository/tree?path=${encodeURIComponent(dirPath)}&ref=${ref}&per_page=100`;
   const res = await fetch(url, { headers });
   if (!res.ok) throw new Error(`GitLab tree error: ${res.status} for ${projectPath}/${dirPath}`);
   return res.json();
+}
+
+/**
+ * Recursively get all files under a directory path.
+ * Uses GitLab's recursive=true parameter + pagination.
+ */
+export async function getTreeRecursive(projectPath: string, dirPath: string, ref = 'main'): Promise<TreeItem[]> {
+  const encoded = encodeURIComponent(projectPath);
+  const allItems: TreeItem[] = [];
+  let page = 1;
+  const perPage = 100;
+
+  while (true) {
+    const url = `${GITLAB_URL}/api/v4/projects/${encoded}/repository/tree?path=${encodeURIComponent(dirPath)}&ref=${ref}&recursive=true&per_page=${perPage}&page=${page}`;
+    const res = await fetch(url, { headers });
+    if (!res.ok) throw new Error(`GitLab tree error: ${res.status} for ${projectPath}/${dirPath} page ${page}`);
+    const items: TreeItem[] = await res.json();
+    allItems.push(...items);
+    if (items.length < perPage) break;
+    page++;
+    if (page > 20) break; // Safety limit: 2000 files max
+  }
+
+  return allItems;
 }
 
 export async function getFileContent(projectPath: string, filePath: string, ref = 'main'): Promise<string | null> {

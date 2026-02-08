@@ -1,0 +1,122 @@
+[
+  [
+    "Box",
+    3
+  ],
+  [
+    "ErrorBoundary",
+    3
+  ],
+  [
+    "ResourceId",
+    3
+  ],
+  [
+    "Box + Breadcrumb + Button + Card + Combine + Drawer + Icon + Notice + Radio + Tag + Tooltip",
+    2
+  ],
+  [
+    "Combine + Form + Message + Switch + Tooltip",
+    2
+  ],
+  [
+    "Drawer",
+    2
+  ],
+  [
+    "BatchModal + ResourceId",
+    2
+  ],
+  [
+    "Box + Form + NumberInput",
+    2
+  ],
+  [
+    "Radio + ZForm",
+    2
+  ],
+  [
+    "Box + Button + Combine + Form + Loading + Modal + Notice + ZForm",
+    2
+  ],
+  [
+    "Notice",
+    2
+  ],
+  [
+    "Locale",
+    2
+  ],
+  [
+    "Badge + Box + Checkbox + Combine + ErrorBoundary + Form + FormLabelCol + Icon + Notice + Radio + Select",
+    1
+  ],
+  [
+    "Box + Combine + ErrorBoundary + Form + FormLabelCol + Icon + Notice + Radio + Select",
+    1
+  ],
+  [
+    "ActionList + Box + Button + Combine + ErrorBoundary + Icon + Table",
+    1
+  ],
+  [
+    "Badge + Box + Combine + ErrorBoundary + Radio + Tag + Tooltip",
+    1
+  ],
+  [
+    "Icon",
+    1
+  ],
+  [
+    "Box + Combine + NumberInput + Radio + Tooltip",
+    1
+  ],
+  [
+    "Box + Combine + Icon + Tag + Tooltip",
+    1
+  ],
+  [
+    "Icon + Tag + Tooltip",
+    1
+  ],
+  [
+    "Box + Combine + EditableTable + ErrorBoundary + Icon + Loading + Notice + NumberInput + Select + Switch + Tag + Tooltip",
+    1
+  ],
+  [
+    "Box + Combine + ErrorBoundary + Form + Icon + NumberInput + Radio + Select + Table + Tooltip",
+    1
+  ],
+  [
+    "Box + ErrorBoundary + Form + FormLabelCol + Loading + Notice + Radio + Tooltip",
+    1
+  ],
+  [
+    "Box + Combine + Icon + Select + Tag + Tooltip",
+    1
+  ],
+  [
+    "Combine + Icon + Select",
+    1
+  ],
+  [
+    "Box + Combine + ErrorBoundary + Form + FormLabelCol + Loading + Notice + Password + Radio + Tabs",
+    1
+  ],
+  [
+    "Box + Checkbox + Combine + ErrorBoundary + Form + FormLabelCol + Notice + Radio + Switch + Tooltip",
+    1
+  ],
+  [
+    "ErrorBoundary + Form + FormLabelCol + Radio",
+    1
+  ],
+  [
+    "Form + FormLabelCol + Notice + Radio",
+    1
+  ],
+  [
+    "Box + Checkbox + Form + FormLabelCol + Radio",
+    1
+  ]
+]

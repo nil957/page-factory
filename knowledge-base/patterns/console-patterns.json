@@ -1,0 +1,2425 @@
+[
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/CPUPlatformSelect/UhostFamilySelect.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "Box",
+          "Icon",
+          "Combine",
+          "Select",
+          "FormLabelCol",
+          "Notice",
+          "Checkbox",
+          "Badge"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary",
+      "Form",
+      "Radio",
+      "Box",
+      "Icon",
+      "Combine",
+      "Select",
+      "FormLabelCol",
+      "Notice",
+      "Checkbox",
+      "Badge"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/CPUPlatformSelect/index.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "Box",
+          "Icon",
+          "Combine",
+          "Select",
+          "FormLabelCol",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary",
+      "Form",
+      "Radio",
+      "Box",
+      "Icon",
+      "Combine",
+      "Select",
+      "FormLabelCol",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/FirewallRuleTable/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Table",
+          "Button",
+          "Combine",
+          "Box",
+          "ActionList",
+          "Icon"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Table",
+      "Button",
+      "Combine",
+      "Box",
+      "ActionList",
+      "Icon",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/MachineTypeCard/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Radio",
+          "Box",
+          "Tag",
+          "Tooltip",
+          "Combine",
+          "Badge"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Radio",
+      "Box",
+      "Tag",
+      "Tooltip",
+      "Combine",
+      "Badge",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/SecurityRuleInfo/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Icon"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Icon"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/SnapServiceMode/ModeCard.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Radio",
+          "Box",
+          "Combine",
+          "NumberInput",
+          "Tooltip"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Radio",
+      "Box",
+      "Combine",
+      "NumberInput",
+      "Tooltip"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/SnapServiceMode/SnapModeInfo.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Icon",
+          "Tooltip",
+          "Combine",
+          "Tag",
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Icon",
+      "Tooltip",
+      "Combine",
+      "Tag",
+      "Box"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/SnapServiceMode/SnapServiceCreate.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Tag",
+          "Tooltip",
+          "Combine",
+          "Box",
+          "Icon",
+          "Card",
+          "Button",
+          "Radio",
+          "Notice",
+          "Breadcrumb"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tag",
+      "Tooltip",
+      "Combine",
+      "Box",
+      "Icon",
+      "Card",
+      "Button",
+      "Radio",
+      "Notice",
+      "Breadcrumb",
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/SnapServiceMode/SnapServiceUpdate.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Tag",
+          "Tooltip",
+          "Combine",
+          "Box",
+          "Icon",
+          "Card",
+          "Button",
+          "Radio",
+          "Notice",
+          "Breadcrumb"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tag",
+      "Tooltip",
+      "Combine",
+      "Box",
+      "Icon",
+      "Card",
+      "Button",
+      "Radio",
+      "Notice",
+      "Breadcrumb",
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostConfigInfo/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Tag",
+          "Tooltip",
+          "Icon"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tag",
+      "Tooltip",
+      "Icon"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostDiskSelect/UDiskMultiSelect.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "EditableTable",
+          "NumberInput",
+          "Icon",
+          "Combine",
+          "Select",
+          "Box",
+          "Tooltip",
+          "Tag",
+          "Switch",
+          "Notice",
+          "Loading"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary",
+      "EditableTable",
+      "NumberInput",
+      "Icon",
+      "Combine",
+      "Select",
+      "Box",
+      "Tooltip",
+      "Tag",
+      "Switch",
+      "Notice",
+      "Loading"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostDiskSelect/components/SnapshotSwitch.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostDiskSelect/index.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "Box",
+          "Combine",
+          "Select",
+          "Tooltip",
+          "NumberInput",
+          "Icon",
+          "Table"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary",
+      "Form",
+      "Radio",
+      "Box",
+      "Combine",
+      "Select",
+      "Tooltip",
+      "NumberInput",
+      "Icon",
+      "Table"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostImageSelect/UHostImageCards.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Loading",
+          "Form",
+          "Box",
+          "Radio",
+          "Notice",
+          "Tooltip",
+          "FormLabelCol"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Loading",
+      "Form",
+      "Box",
+      "Radio",
+      "Notice",
+      "Tooltip",
+      "FormLabelCol",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostImageSelect/components/BasicImageCard.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Select",
+          "Icon",
+          "Box",
+          "Tag",
+          "Combine",
+          "Tooltip"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Select",
+      "Icon",
+      "Box",
+      "Tag",
+      "Combine",
+      "Tooltip"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostImageSelect/components/CustomImageSelect.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Select",
+          "Icon",
+          "Combine"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Select",
+      "Icon",
+      "Combine"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostLoginConfig/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "FormLabelCol",
+          "Loading",
+          "Notice",
+          "Box",
+          "Tabs",
+          "Combine"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary",
+          "Password"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "FormLabelCol",
+      "Loading",
+      "Notice",
+      "Box",
+      "Tabs",
+      "Combine",
+      "ErrorBoundary",
+      "Password"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostMachineFeatures/UBoltAgent.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Switch",
+          "Combine",
+          "Tooltip",
+          "Message"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Switch",
+      "Combine",
+      "Tooltip",
+      "Message"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostMachineFeatures/UhidsSwitch.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Switch",
+          "Combine",
+          "Tooltip",
+          "Message"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Switch",
+      "Combine",
+      "Tooltip",
+      "Message"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostMachineFeatures/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "Tooltip",
+          "Combine",
+          "Switch",
+          "Box",
+          "FormLabelCol",
+          "Notice",
+          "Checkbox"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "Tooltip",
+      "Combine",
+      "Switch",
+      "Box",
+      "FormLabelCol",
+      "Notice",
+      "Checkbox",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostMachineSizes/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "FormLabelCol"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "FormLabelCol",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostNetworkConfig/components/BasicNetworkConfig.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "FormLabelCol",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "FormLabelCol",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostNetworkConfig/components/CustomNetworkConfig.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "FormLabelCol",
+          "Box",
+          "Checkbox"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "FormLabelCol",
+      "Box",
+      "Checkbox"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostNetworkConfig/components/FirewallSelect.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "FormLabelCol",
+          "Radio",
+          "Loading",
+          "Notice"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "FormLabelCol",
+      "Radio",
+      "Loading",
+      "Notice",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostNetworkConfig/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Radio",
+          "FormLabelCol",
+          "Tabs"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Radio",
+      "FormLabelCol",
+      "Tabs",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostState/index.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUDishInfo/components/DataDisk.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Card",
+          "Table",
+          "Loading",
+          "Notice",
+          "Box",
+          "Combine",
+          "Button",
+          "Icon",
+          "Modal"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "DocLink",
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Card",
+      "Table",
+      "Loading",
+      "Notice",
+      "Box",
+      "Combine",
+      "Button",
+      "Icon",
+      "Modal",
+      "DocLink",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUDishInfo/components/DrawerHeader.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Breadcrumb"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Breadcrumb"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUDishInfo/components/SystemDisk.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Card",
+          "Table",
+          "Loading",
+          "Box"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Card",
+      "Table",
+      "Loading",
+      "Box",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUDishInfo/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUniInfo/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Table",
+          "Tooltip",
+          "Box",
+          "Button",
+          "Notice",
+          "Loading",
+          "Combine",
+          "Icon"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "BatchModal",
+          "DocLink",
+          "ErrorBoundary",
+          "ModifyNameRemark",
+          "ResourceId",
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Table",
+      "Tooltip",
+      "Box",
+      "Button",
+      "Notice",
+      "Loading",
+      "Combine",
+      "Icon",
+      "BatchModal",
+      "DocLink",
+      "ErrorBoundary",
+      "ModifyNameRemark",
+      "ResourceId",
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UHostUniInfo/modal/BindNI.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Loading",
+          "Notice",
+          "Modal",
+          "Form",
+          "Button",
+          "Combine"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Loading",
+      "Notice",
+      "Modal",
+      "Form",
+      "Button",
+      "Combine"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/UhostIPv6/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Combine",
+          "Form",
+          "Radio",
+          "Tooltip"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Combine",
+      "Form",
+      "Radio",
+      "Tooltip"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/BootDiskStateNotice.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/CreateImage/CreateImageContent.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Loading",
+          "Button",
+          "Notice",
+          "Combine",
+          "Form",
+          "Select",
+          "Input",
+          "Message",
+          "Radio",
+          "Box",
+          "Card",
+          "Checkbox",
+          "Breadcrumb",
+          "DatePicker",
+          "Switch"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Locale",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Loading",
+      "Button",
+      "Notice",
+      "Combine",
+      "Form",
+      "Select",
+      "Input",
+      "Message",
+      "Radio",
+      "Box",
+      "Card",
+      "Checkbox",
+      "Breadcrumb",
+      "DatePicker",
+      "Switch",
+      "Locale",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/CreateImage/CreateImageDrawer.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/CreateImage/DataDiskComp.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Loading",
+          "Table",
+          "Combine",
+          "Box",
+          "Button",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Loading",
+      "Table",
+      "Combine",
+      "Box",
+      "Button",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/EditNetCapability.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal",
+          "Combine",
+          "Button",
+          "Checkbox",
+          "Notice",
+          "Loading",
+          "Box",
+          "Form"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal",
+      "Combine",
+      "Button",
+      "Checkbox",
+      "Notice",
+      "Loading",
+      "Box",
+      "Form",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/MountUDisk.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Select",
+          "Tooltip",
+          "Modal",
+          "Form",
+          "Notice",
+          "Combine",
+          "Button",
+          "Loading"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Select",
+      "Tooltip",
+      "Modal",
+      "Form",
+      "Notice",
+      "Combine",
+      "Button",
+      "Loading",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/OperationDenied.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal",
+          "Button",
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal",
+      "Button",
+      "Box"
+    ]
+  },
+  {
+    "project": "console/uhost-components",
+    "filePath": "src/components/modals/ReinstallImageSelect.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Radio",
+          "Select",
+          "Icon",
+          "Box",
+          "Combine",
+          "Tag",
+          "Tooltip"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Radio",
+      "Select",
+      "Icon",
+      "Box",
+      "Combine",
+      "Tag",
+      "Tooltip",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/udb-components",
+    "filePath": "src/components/ActionMenu/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Menu",
+          "Popover",
+          "Icon",
+          "PopConfirm"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Menu",
+      "Popover",
+      "Icon",
+      "PopConfirm"
+    ]
+  },
+  {
+    "project": "console/udb-components",
+    "filePath": "src/components/MonitorNodeList/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Input",
+          "Radio",
+          "Tag",
+          "Icon"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Input",
+      "Radio",
+      "Tag",
+      "Icon"
+    ]
+  },
+  {
+    "project": "console/udb-components",
+    "filePath": "src/components/PopConfirm/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Tooltip",
+          "Button",
+          "Combine"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tooltip",
+      "Button",
+      "Combine"
+    ]
+  },
+  {
+    "project": "console/udb-components",
+    "filePath": "src/components/TableWrapper/index.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ExportCSV"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Table",
+          "Box",
+          "Combine",
+          "Notice",
+          "Tooltip",
+          "Button",
+          "Icon",
+          "TableProps"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ExportCSV",
+      "Table",
+      "Box",
+      "Combine",
+      "Notice",
+      "Tooltip",
+      "Button",
+      "Icon",
+      "TableProps"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/AssociationUGN/AssociatedUGNInfo.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Card",
+          "Box",
+          "Button",
+          "Loading",
+          "PopConfirm",
+          "Message"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Card",
+      "Box",
+      "Button",
+      "Loading",
+      "PopConfirm",
+      "Message",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/AssociationUGN/AssociationUGNModal.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Message"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Modal"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Message",
+      "Modal"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/AssociationUGN/DisassociateUGNModal.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box",
+          "Button",
+          "Checkbox",
+          "Combine",
+          "Loading",
+          "Message",
+          "Modal",
+          "Table"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Notice",
+          "RegionZone"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box",
+      "Button",
+      "Checkbox",
+      "Combine",
+      "Loading",
+      "Message",
+      "Modal",
+      "Table",
+      "Notice",
+      "RegionZone"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/AssociationUGN/index.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipCreate/components/Exist.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Select",
+          "Notice",
+          "Link"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Select",
+      "Notice",
+      "Link"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipCreate/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box",
+          "Combine",
+          "Form",
+          "Loading",
+          "Message",
+          "Notice",
+          "NumberInput",
+          "Radio"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary",
+          "Locale"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box",
+      "Combine",
+      "Form",
+      "Loading",
+      "Message",
+      "Notice",
+      "NumberInput",
+      "Radio",
+      "ErrorBoundary",
+      "Locale"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/EipManageTable.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary",
+          "ResourceId"
+        ]
+      },
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Table",
+          "Loading",
+          "Notice",
+          "Button",
+          "Box",
+          "Icon"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary",
+      "ResourceId",
+      "Table",
+      "Loading",
+      "Notice",
+      "Button",
+      "Box",
+      "Icon"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/components/ModalWrapper/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal",
+          "Button",
+          "Notice",
+          "Loading",
+          "Combine"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal",
+      "Button",
+      "Notice",
+      "Loading",
+      "Combine"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/DisableNat64.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "BatchModal",
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "BatchModal",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/EIPBind.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Message",
+          "Notice"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Locale",
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Message",
+      "Notice",
+      "Locale",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/EIPModifyName.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Form",
+          "Input"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Form",
+      "Input"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/EIPResize.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box",
+          "Form",
+          "NumberInput"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box",
+      "Form",
+      "NumberInput"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/EIPUnBind.tsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "BatchModal",
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "BatchModal",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/EnableNat64.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Box"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Box",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/EipManage/modals/ShareBandwidthResize.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "Box",
+          "NumberInput"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "Box",
+      "NumberInput"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/FirewallSelect/index.tsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Form",
+          "FormLabelCol",
+          "Loading",
+          "Notice"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Form",
+      "FormLabelCol",
+      "Loading",
+      "Notice",
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/FirewallUpdate/BatchUpdate.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "BatchModal"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "BatchModal"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/FirewallUpdate/FirewallRuleTable.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Table",
+          "Button",
+          "Box",
+          "Tooltip",
+          "Icon"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Table",
+      "Button",
+      "Box",
+      "Tooltip",
+      "Icon"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/FirewallUpdate/index.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal",
+          "Box",
+          "Button",
+          "Notice",
+          "Loading",
+          "Combine",
+          "Radio",
+          "Input",
+          "Badge",
+          "Tooltip"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal",
+      "Box",
+      "Button",
+      "Notice",
+      "Loading",
+      "Combine",
+      "Radio",
+      "Input",
+      "Badge",
+      "Tooltip"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/GlobalSSH.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ErrorBoundary"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/AreaSelect.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Select",
+          "ZForm",
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Select",
+      "ZForm",
+      "Box"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/ChargeFree.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/DisabledButton.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Tooltip",
+          "Button"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tooltip",
+      "Button"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/FRgionInput.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Radio"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Radio"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/InstanceAvatar.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/InstanceRadio.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Box",
+          "Radio"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Box",
+      "Radio"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/InstanceType.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Link",
+          "Box",
+          "Tooltip"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Link",
+      "Box",
+      "Tooltip"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/ManageGlobalSSH.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Modal",
+          "Tooltip"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Copy"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Modal",
+      "Tooltip",
+      "Copy"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/VersionList.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Radio",
+          "Tooltip",
+          "Notice",
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Radio",
+      "Tooltip",
+      "Notice",
+      "Box"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/ZBWPackageInput.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Radio"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Radio"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/ZIPInput.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Form",
+          "AutoComplete",
+          "Box"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Form",
+      "AutoComplete",
+      "Box"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/component/ZPortInput.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Input",
+          "ZForm",
+          "Radio"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Input",
+      "ZForm",
+      "Radio"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/CreateGlobalRDP.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Box",
+          "Modal",
+          "Form",
+          "Loading",
+          "Notice",
+          "Combine",
+          "Button"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Box",
+      "Modal",
+      "Form",
+      "Loading",
+      "Notice",
+      "Combine",
+      "Button"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/CreateGlobalSSH.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Box",
+          "Modal",
+          "Form",
+          "Combine",
+          "Button",
+          "Loading",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Box",
+      "Modal",
+      "Form",
+      "Combine",
+      "Button",
+      "Loading",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ManageRDP.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Button",
+          "Combine",
+          "Select",
+          "Modal",
+          "Loading",
+          "Notice",
+          "Box",
+          "Tooltip"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Copy"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Button",
+      "Combine",
+      "Select",
+      "Modal",
+      "Loading",
+      "Notice",
+      "Box",
+      "Tooltip",
+      "Copy"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ManageSSH.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "Button",
+          "Combine",
+          "Modal",
+          "Loading",
+          "Notice",
+          "Box",
+          "Tooltip",
+          "Popover"
+        ]
+      },
+      {
+        "source": "common-components",
+        "components": [
+          "Copy"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Button",
+      "Combine",
+      "Modal",
+      "Loading",
+      "Notice",
+      "Box",
+      "Tooltip",
+      "Popover",
+      "Copy"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ModifyForwardRegion.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Modal",
+          "Form",
+          "Loading",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Modal",
+      "Form",
+      "Loading",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ModifyIPArea.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Modal",
+          "Form",
+          "Combine",
+          "Button",
+          "Loading",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Modal",
+      "Form",
+      "Combine",
+      "Button",
+      "Loading",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ModifyPort.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Grid",
+          "Icon",
+          "Form",
+          "Modal",
+          "Loading",
+          "Notice",
+          "Combine",
+          "Button"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Grid",
+      "Icon",
+      "Form",
+      "Modal",
+      "Loading",
+      "Notice",
+      "Combine",
+      "Button"
+    ]
+  },
+  {
+    "project": "console/unet-components",
+    "filePath": "src/GlobalSSH/modals/ModifyRemark.jsx",
+    "imports": [
+      {
+        "source": "@ucloud-fe/react-components",
+        "components": [
+          "ZForm",
+          "Input",
+          "Modal",
+          "Form",
+          "Loading",
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ZForm",
+      "Input",
+      "Modal",
+      "Form",
+      "Loading",
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/components/DrawerComp/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/components/SafetyRulesItem/SecGroupTable.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/components/SafetyRulesItem/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Notice"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Notice"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/containers/ALBCreate/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "RegionZone",
+          "Tag"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "RegionZone",
+      "Tag"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/containers/ALBManage/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Tag",
+          "IAMError",
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tag",
+      "IAMError",
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/ulb",
+    "filePath": "src/containers/ALBdetail/Listen/ListenBasic.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/BackupManage/RedisBackup.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Locale",
+          "Drawer"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Locale",
+      "Drawer"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/BasicConfig/redis.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Locale"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Locale"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/BasicInfo/RedisInfo.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId",
+          "ResourceLabel"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ResourceId",
+      "ResourceLabel"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/BasicInfo/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Tag",
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Tag",
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/ChangeDBType/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/CustomPassword/passwordInput.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Password"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Password"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/PrivateAddress/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "ResourceId"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "ResourceId"
+    ]
+  },
+  {
+    "project": "console/umem",
+    "filePath": "src/old/umemv4/components/State/index.jsx",
+    "imports": [
+      {
+        "source": "common-components",
+        "components": [
+          "Locale"
+        ]
+      }
+    ],
+    "componentCombination": [
+      "Locale"
+    ]
+  }
+]
