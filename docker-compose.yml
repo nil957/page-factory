@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  page-factory:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/page_factory
+      - JWT_SECRET=your-secret-key-change-in-production
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PROJECTS_DIR=/app/projects
+    volumes:
+      - projects_data:/app/projects
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  projects_data:
