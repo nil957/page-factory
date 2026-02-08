@@ -1,12 +1,22 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=page_factory
+      - POSTGRES_USER=pagefactory
+      - POSTGRES_PASSWORD=pf_db_2026_prod
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
   page-factory:
     build: .
     ports:
       - "3080:3000"
     environment:
-      - DATABASE_URL=postgresql://silicon:silicon_dev_pwd@sf-postgres:5432/page_factory?schema=public
+      - DATABASE_URL=postgresql://pagefactory:pf_db_2026_prod@db:5432/page_factory?schema=public
       - JWT_SECRET=pf-jwt-secret-2026-production-key
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-https://api.modelverse.cn}
@@ -15,13 +25,10 @@ services:
       - PROJECTS_DIR=/app/projects
     volumes:
       - projects_data:/app/projects
-    networks:
-      - silicon-friends-app_default
+    depends_on:
+      - db
     restart: unless-stopped
 
 volumes:
+  pg_data:
   projects_data:
-
-networks:
-  silicon-friends-app_default:
-    external: true
