@@ -1,0 +1,324 @@
+{
+  "$schema": "./page-templates-schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-08",
+  "description": "预定义的页面模板，帮助非专业用户快速选择页面类型，AI 根据模板生成对应骨架代码",
+
+  "templates": [
+    {
+      "id": "resource-list",
+      "name": "资源列表页",
+      "description": "展示资源列表，支持搜索、筛选、分页、批量操作",
+      "preview": "典型产品如：云主机列表、数据库列表、负载均衡列表",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "ProductRoutes", "lib": "common-components", "role": "页面 Tab 路由" },
+            { "name": "Table", "lib": "udesign", "role": "数据表格" },
+            { "name": "ResourceId", "lib": "common-components", "role": "资源 ID 列（可复制）" },
+            { "name": "Copy", "lib": "common-components", "role": "复制功能" },
+            { "name": "BatchModal", "lib": "common-components", "role": "批量操作弹窗" }
+          ],
+          "optional": [
+            { "name": "ResourceLabel", "lib": "common-components", "role": "资源标签管理" },
+            { "name": "ModifyNameRemark", "lib": "common-components", "role": "修改名称/备注" },
+            { "name": "ExportCSV", "lib": "common-components", "role": "导出 CSV" },
+            { "name": "Notice", "lib": "common-components", "role": "页面顶部通知" }
+          ],
+          "services": [
+            { "name": "queryService.query", "role": "获取列表数据" },
+            { "name": "regionService", "role": "地域筛选联动" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ProTable", "lib": "udesign-pro", "role": "高级表格（内置搜索和分页）" },
+            { "name": "ProBatchModal", "lib": "udesign-pro", "role": "批量操作弹窗" },
+            { "name": "Copy", "lib": "udesign-pro", "role": "复制功能" }
+          ],
+          "optional": [
+            { "name": "ProExportBtn", "lib": "udesign-pro", "role": "导出按钮" },
+            { "name": "State", "lib": "udesign-pro", "role": "状态展示" },
+            { "name": "ProductLayout", "lib": "udesign-pro", "role": "产品布局" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/List.tsx",
+          "src/pages/{name}/columns.tsx",
+          "src/pages/{name}/actions.tsx"
+        ]
+      },
+      "exampleProjects": ["console/uhost", "console/udb", "console/ulb"]
+    },
+
+    {
+      "id": "create-resource",
+      "name": "创建资源页",
+      "description": "分步表单创建云资源，含地域选择、配置选择、计费支付",
+      "preview": "典型产品如：创建云主机、创建数据库、创建负载均衡",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "RegionZone", "lib": "common-components", "role": "地域可用区选择" },
+            { "name": "Form", "lib": "common-components", "role": "表单容器（含 Area, Input, Select 等子组件）" },
+            { "name": "ChargeInfo", "lib": "common-components", "role": "计费信息展示" },
+            { "name": "Purchase", "lib": "common-components", "role": "支付确认" }
+          ],
+          "optional": [
+            { "name": "VPC", "lib": "common-components", "role": "VPC 选择" },
+            { "name": "Subnet", "lib": "common-components", "role": "子网选择" },
+            { "name": "FirewallSelect", "lib": "common-components", "role": "防火墙选择" },
+            { "name": "EipCreate", "lib": "common-components", "role": "弹性 IP 配置" },
+            { "name": "Password", "lib": "common-components", "role": "密码设置" },
+            { "name": "LoginConfig", "lib": "common-components", "role": "登录方式配置" }
+          ],
+          "services": [
+            { "name": "queryService.query", "role": "获取配置选项（机型、镜像等）" },
+            { "name": "regionService", "role": "地域联动" },
+            { "name": "projectService", "role": "项目联动" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ProForm", "lib": "udesign-pro", "role": "高级表单" }
+          ],
+          "optional": [
+            { "name": "ProCard", "lib": "udesign-pro", "role": "表单分区卡片" },
+            { "name": "Password", "lib": "udesign-pro", "role": "密码输入" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/Create.tsx",
+          "src/pages/{name}/components/BasicConfig.tsx",
+          "src/pages/{name}/components/NetworkConfig.tsx",
+          "src/pages/{name}/components/PaymentSection.tsx"
+        ]
+      },
+      "exampleProjects": ["console/uhost", "console/udb"]
+    },
+
+    {
+      "id": "detail-page",
+      "name": "资源详情页",
+      "description": "资源详情展示，通常从列表页点击进入，含概览、监控、日志等 Tab",
+      "preview": "典型产品如：云主机详情、数据库详情",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "ProductRoutes", "lib": "common-components", "role": "详情页 Tab 切换" },
+            { "name": "ResourceId", "lib": "common-components", "role": "资源 ID 展示" },
+            { "name": "Copy", "lib": "common-components", "role": "复制功能" }
+          ],
+          "optional": [
+            { "name": "Drawer", "lib": "common-components", "role": "子资源详情抽屉" },
+            { "name": "Ulog", "lib": "common-components", "role": "操作日志 Tab" },
+            { "name": "ResourceLabel", "lib": "common-components", "role": "标签管理" },
+            { "name": "ModifyNameRemark", "lib": "common-components", "role": "修改名称/备注" }
+          ],
+          "services": [
+            { "name": "queryService.query", "role": "获取资源详情" },
+            { "name": "queryService.poll", "role": "轮询状态变更" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ProTabs", "lib": "udesign-pro", "role": "Tab 切换" },
+            { "name": "ConfigInfo", "lib": "udesign-pro", "role": "配置信息展示" },
+            { "name": "Copy", "lib": "udesign-pro", "role": "复制功能" }
+          ],
+          "optional": [
+            { "name": "ProDrawer", "lib": "udesign-pro", "role": "抽屉" },
+            { "name": "ProCard", "lib": "udesign-pro", "role": "分区卡片" },
+            { "name": "State", "lib": "udesign-pro", "role": "状态展示" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/Detail.tsx",
+          "src/pages/{name}/tabs/Overview.tsx",
+          "src/pages/{name}/tabs/Monitor.tsx",
+          "src/pages/{name}/tabs/Log.tsx"
+        ]
+      },
+      "exampleProjects": ["console/uhost", "console/udb"]
+    },
+
+    {
+      "id": "edit-modal",
+      "name": "编辑弹窗",
+      "description": "弹窗中编辑资源属性（修改配置、升级等）",
+      "preview": "典型场景如：修改配置、升降级、扩容",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "Modal", "lib": "common-components", "role": "弹窗容器" },
+            { "name": "Form", "lib": "common-components", "role": "编辑表单" }
+          ],
+          "optional": [
+            { "name": "ChargeInfo", "lib": "common-components", "role": "变配后价格信息" },
+            { "name": "Purchase", "lib": "common-components", "role": "确认支付" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ModalForm", "lib": "udesign-pro", "role": "弹窗表单一体化" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/modals/EditModal.tsx"
+        ]
+      }
+    },
+
+    {
+      "id": "detail-drawer",
+      "name": "详情抽屉",
+      "description": "侧滑抽屉展示资源详细信息",
+      "preview": "典型场景如：列表行点击展开详情",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "Drawer", "lib": "common-components", "role": "抽屉容器" },
+            { "name": "ResourceId", "lib": "common-components", "role": "资源 ID" }
+          ],
+          "optional": [
+            { "name": "ResourceLabel", "lib": "common-components", "role": "标签" },
+            { "name": "Ulog", "lib": "common-components", "role": "操作日志" },
+            { "name": "Copy", "lib": "common-components", "role": "复制" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "DrawerForm", "lib": "udesign-pro", "role": "抽屉（如含表单）" },
+            { "name": "ConfigInfo", "lib": "udesign-pro", "role": "信息展示" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/drawers/DetailDrawer.tsx"
+        ]
+      }
+    },
+
+    {
+      "id": "dashboard",
+      "name": "概览/仪表盘页",
+      "description": "产品概览页，展示统计数据、快捷操作",
+      "preview": "典型场景如：产品首页、运维概览",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "ProductRoutes", "lib": "common-components", "role": "页面路由" }
+          ],
+          "optional": [
+            { "name": "Notice", "lib": "common-components", "role": "公告通知" },
+            { "name": "DocLink", "lib": "common-components", "role": "文档链接" }
+          ],
+          "services": [
+            { "name": "queryService.query", "role": "获取统计数据" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ProCard", "lib": "udesign-pro", "role": "数据卡片" },
+            { "name": "ProStatistic", "lib": "udesign-pro", "role": "统计数值" }
+          ],
+          "optional": [
+            { "name": "ProCardList", "lib": "udesign-pro", "role": "卡片列表" },
+            { "name": "ProductLayout", "lib": "udesign-pro", "role": "页面布局" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/Dashboard.tsx",
+          "src/pages/{name}/components/StatsCards.tsx",
+          "src/pages/{name}/components/QuickActions.tsx"
+        ]
+      }
+    },
+
+    {
+      "id": "payment-flow",
+      "name": "支付流程",
+      "description": "独立的支付确认页面（从创建页或升级弹窗跳转）",
+      "preview": "典型场景如：确认订单、选择代金券、执行支付",
+      "applicableTo": ["console"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "ChargeInfo", "lib": "common-components", "role": "计费详情" },
+            { "name": "Purchase", "lib": "common-components", "role": "支付执行" },
+            { "name": "RegionZone", "lib": "common-components", "role": "地域信息展示" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/Payment.tsx"
+        ]
+      }
+    },
+
+    {
+      "id": "settings-page",
+      "name": "配置/设置页",
+      "description": "产品配置页面，表单为主",
+      "preview": "典型场景如：安全规则配置、产品设置",
+      "applicableTo": ["console", "standalone"],
+      "components": {
+        "console": {
+          "required": [
+            { "name": "Form", "lib": "common-components", "role": "设置表单" }
+          ],
+          "optional": [
+            { "name": "SafetyRules", "lib": "common-components", "role": "安全规则配置" },
+            { "name": "Modal", "lib": "common-components", "role": "确认弹窗" }
+          ]
+        },
+        "standalone": {
+          "required": [
+            { "name": "ProForm", "lib": "udesign-pro", "role": "高级表单" }
+          ],
+          "optional": [
+            { "name": "ProCard", "lib": "udesign-pro", "role": "设置分组" },
+            { "name": "ProTabs", "lib": "udesign-pro", "role": "设置分类" }
+          ]
+        }
+      },
+      "skeleton": {
+        "files": [
+          "src/pages/{name}/Settings.tsx"
+        ]
+      }
+    }
+  ],
+
+  "templateSelectionGuide": {
+    "description": "AI 根据用户需求描述，自动匹配最合适的模板",
+    "keywordMapping": {
+      "resource-list": ["列表", "查看所有", "展示所有", "管理", "搜索", "筛选", "list"],
+      "create-resource": ["创建", "新建", "新增", "购买", "开通", "create", "new"],
+      "detail-page": ["详情", "详细信息", "概览", "detail", "overview"],
+      "edit-modal": ["编辑", "修改", "变更", "升级", "扩容", "edit", "modify"],
+      "detail-drawer": ["抽屉", "侧滑详情", "drawer"],
+      "dashboard": ["仪表盘", "概览", "统计", "dashboard", "总览"],
+      "payment-flow": ["支付", "付款", "购买确认", "payment"],
+      "settings-page": ["配置", "设置", "settings", "配置管理"]
+    }
+  }
+}

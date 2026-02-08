@@ -3,6 +3,101 @@ import { getSession } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { readProjectFile, writeProjectFile, listProjectFiles } from '@/lib/git'
 import Anthropic from '@anthropic-ai/sdk'
+import { searchComponents, getComponentDoc, buildComponentContext } from '@/lib/knowledge-base'
+
+const LOOKUP_COMPONENT_TOOL: Anthropic.Tool = {
+  name: 'lookup_component',
+  description: '查看某个组件的完整文档，包括 Props 定义、用法示例和注意事项。当需要准确使用某个组件时调用此工具。',
+  input_schema: {
+    type: 'object' as const,
+    properties: {
+      component_name: {
+        type: 'string',
+        description: '组件名称，如 ProTable, RegionZone, Button'
+      },
+      library: {
+        type: 'string',
+        enum: ['udesign', 'udesign-pro', 'common-components'],
+        description: '组件所属库（可选，不确定时可省略）'
+      }
+    },
+    required: ['component_name']
+  }
+}
+
+function detectProjectType(files: string[]): 'console' | 'standalone' {
+  return files.some(f => f.startsWith('.console/') || f.includes('dependences.js'))
+    ? 'console'
+    : 'standalone'
+}
+
+function buildSystemPrompt(
+  projectName: string,
+  projectType: 'console' | 'standalone',
+  files: string[],
+  userMessage: string
+): string {
+  const relevantComponents = searchComponents(userMessage, projectType, 8)
+  const componentContext = relevantComponents.length > 0
+    ? buildComponentContext(relevantComponents, projectType)
+    : '暂无匹配的组件，可使用 lookup_component 工具查询。'
+
+  return `你是 Page Factory AI 助手，帮助开发项目"${projectName}"（${projectType === 'console' ? '控制台' : '独立'}项目）。
+
+## 项目文件
+${files.slice(0, 30).join(', ')}
+
+## 可用组件
+${componentContext}
+
+## 规则
+1. 始终使用上面列出的组件和 import 语句
+2. 如果组件有冲突标记，严格按冲突规则使用
+3. common-components 组件仅限控制台项目使用
+4. 如需查看组件详细文档，使用 lookup_component 工具
+5. 用中文回复
+
+## 文件操作
+- 用 <read_file path="路径"/> 读取项目文件
+- 用 <write_file path="路径">内容</write_file> 写入文件`
+}
+
+function handleToolUse(
+  toolName: string,
+  input: Record<string, unknown>,
+  projectType: 'console' | 'standalone'
+): string {
+  if (toolName !== 'lookup_component') {
+    return `未知工具: ${toolName}`
+  }
+
+  const componentName = input.component_name as string
+  const library = input.library as string | undefined
+
+  const matches = searchComponents(componentName, projectType, 5)
+  const exact = matches.find(c =>
+    c.name === componentName && (!library || c.library === library)
+  )
+
+  if (exact) {
+    const doc = getComponentDoc(exact.docFile)
+    return doc || `组件 ${componentName} 的详细文档暂未生成。基本信息：\n${exact.import}\n${exact.description}`
+  }
+
+  if (matches.length > 0) {
+    const suggestions = matches.map(c => `- ${c.name} (${c.library})`).join('\n')
+    return `未找到精确匹配 "${componentName}"，相似组件：\n${suggestions}`
+  }
+
+  return `未找到组件 "${componentName}"。请检查组件名是否正确。`
+}
+
+function extractTextFromResponse(response: Anthropic.Message): string {
+  return response.content
+    .filter((block): block is Anthropic.TextBlock => block.type === 'text')
+    .map(block => block.text)
+    .join('')
+}
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -66,25 +161,64 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     }
     
     const files = await listProjectFiles(project.localPath)
-    const systemPrompt = `你是前端开发助手，帮助开发项目"${project.name}"。项目文件：${files.slice(0,50).join(', ')}。用<read_file path="路径"/>读取文件，<write_file path="路径">内容</write_file>写入文件。中文回复。`
+    const projectType = detectProjectType(files)
+    const systemPrompt = buildSystemPrompt(project.name, projectType, files, message)
     
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const msgs = (conversation as any).messages || []
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const historyMessages = msgs.map((m: any) => ({ role: m.role as 'user'|'assistant', content: m.content }))
+    const historyMessages: Anthropic.MessageParam[] = msgs.map((m: any) => ({
+      role: m.role as 'user' | 'assistant',
+      content: m.content
+    }))
     historyMessages.push({ role: 'user', content: message })
     
     await prisma.message.create({ data: { conversationId: conversation.id, role: 'user', content: message } })
     
     const anthropic = new Anthropic({ apiKey })
-    const response = await anthropic.messages.create({ 
+    let response = await anthropic.messages.create({ 
       model: 'claude-sonnet-4-20250514', 
       max_tokens: 4096, 
       system: systemPrompt, 
-      messages: historyMessages 
+      messages: historyMessages,
+      tools: [LOOKUP_COMPONENT_TOOL]
     })
     
-    let assistantMessage = response.content[0].type === 'text' ? response.content[0].text : ''
+    const MAX_TOOL_ITERATIONS = 3
+    let iterations = 0
+    while (response.stop_reason === 'tool_use' && iterations < MAX_TOOL_ITERATIONS) {
+      const toolUseBlock = response.content.find(
+        (c): c is Anthropic.ToolUseBlock => c.type === 'tool_use'
+      )
+      if (!toolUseBlock) break
+
+      const toolResult = handleToolUse(
+        toolUseBlock.name,
+        toolUseBlock.input as Record<string, unknown>,
+        projectType
+      )
+
+      historyMessages.push({ role: 'assistant', content: response.content })
+      historyMessages.push({
+        role: 'user',
+        content: [{
+          type: 'tool_result',
+          tool_use_id: toolUseBlock.id,
+          content: toolResult
+        }]
+      })
+
+      response = await anthropic.messages.create({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4096,
+        system: systemPrompt,
+        messages: historyMessages,
+        tools: [LOOKUP_COMPONENT_TOOL]
+      })
+      iterations++
+    }
+    
+    let assistantMessage = extractTextFromResponse(response)
     
     const readMatches = assistantMessage.matchAll(/<read_file path="([^"]+)"\s*\/>/g)
     for (const match of readMatches) { 

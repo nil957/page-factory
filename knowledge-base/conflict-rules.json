@@ -1,0 +1,314 @@
+{
+  "$schema": "./conflict-rules-schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-08",
+
+  "globalRules": [
+    {
+      "id": "console-project-priority",
+      "description": "控制台项目中，common-components 的业务封装组件优先于 UDesign 和 Pro 的基础组件",
+      "condition": "projectType === 'console'",
+      "priority": ["common-components", "udesign-pro", "udesign"]
+    },
+    {
+      "id": "standalone-project-priority",
+      "description": "非控制台项目中，Pro 优先于 UDesign 基础版（功能更丰富），不能使用 common-components",
+      "condition": "projectType === 'standalone'",
+      "priority": ["udesign-pro", "udesign"],
+      "forbidden": ["common-components"]
+    },
+    {
+      "id": "common-components-environment",
+      "description": "common-components 依赖控制台框架（services, 登录态, 地域），只能在控制台项目中使用",
+      "enforcement": "hard-block"
+    }
+  ],
+
+  "conflicts": [
+    {
+      "componentName": "Modal",
+      "involvedLibraries": ["udesign", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Modal } from 'common-components';",
+        "reason": "common-components 的 Modal 已封装控制台样式和交互规范"
+      },
+      "standalone": {
+        "use": "udesign",
+        "import": "import { Modal } from '@ucloud-fe/react-components';",
+        "reason": "UDesign 提供通用弹窗，可自由定制"
+      },
+      "note": "如果需要弹窗内嵌表单，优先考虑 Pro 的 ModalForm"
+    },
+    {
+      "componentName": "Form",
+      "involvedLibraries": ["udesign", "udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Form, Area, Input, Submit } from 'common-components/lib/FormComponents';",
+        "reason": "common-components Form 基于 react-hook-form 封装，含 23 个子组件，与控制台表单场景深度集成"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProForm } from '@ucloud/pro-form';",
+        "reason": "ProForm 功能丰富，支持 StepsForm、QueryFilter 等，优于 UDesign 基础 Form"
+      },
+      "note": "UDesign 基础 Form 仅在需要最轻量表单时使用"
+    },
+    {
+      "componentName": "Drawer",
+      "involvedLibraries": ["udesign", "udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Drawer } from 'common-components';",
+        "reason": "控制台 Drawer 已集成 ResourceId、标签等业务逻辑"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProDrawer } from '@ucloud/pro-components';",
+        "reason": "ProDrawer 比基础 Drawer 功能更丰富"
+      },
+      "note": "如果抽屉内需要表单，用 Pro 的 DrawerForm"
+    },
+    {
+      "componentName": "Copy",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Copy } from 'common-components';",
+        "reason": "common-components Copy 提供 Copy.Icon 和 Copy.withCopy 两种模式，与控制台 UI 一致",
+        "usage": "Copy.Icon 用于行内复制图标，Copy.withCopy 用于 HOC 包裹"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { Copy } from '@ucloud/pro-components';",
+        "reason": "通用复制组件"
+      }
+    },
+    {
+      "componentName": "Notice",
+      "involvedLibraries": ["udesign", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Notice } from 'common-components';",
+        "reason": "支持记忆关闭状态（localStorage），用户关闭后不再出现"
+      },
+      "standalone": {
+        "use": "udesign",
+        "import": "import { Notice } from '@ucloud-fe/react-components';",
+        "reason": "基础通知组件"
+      }
+    },
+    {
+      "componentName": "Tag",
+      "involvedLibraries": ["udesign", "udesign-pro", "common-components"],
+      "console": {
+        "useMap": {
+          "业务组选择": {
+            "use": "common-components",
+            "import": "import { Tag } from 'common-components';",
+            "when": "需要选择/管理业务组标签"
+          },
+          "状态展示标签": {
+            "use": "udesign-pro",
+            "import": "import { Tag } from '@ucloud/pro-components';",
+            "when": "需要展示 Running/Stopped 等状态标签"
+          },
+          "基础标签": {
+            "use": "udesign",
+            "import": "import { Tag } from '@ucloud-fe/react-components';",
+            "when": "纯展示性标签，无业务逻辑"
+          }
+        },
+        "reason": "Tag 在三个库中含义完全不同：common = 业务组选择器，Pro = 增强展示，UDesign = 基础展示"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { Tag } from '@ucloud/pro-components';",
+        "reason": "Pro Tag 比 UDesign Tag 功能更丰富"
+      },
+      "note": "这是冲突最严重的组件，AI 必须根据使用场景判断"
+    },
+    {
+      "componentName": "Password",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Password } from 'common-components';",
+        "reason": "控制台 Password 与框架密码策略集成，支持强度检测和随机生成"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { Password } from '@ucloud/pro-components';",
+        "reason": "通用密码组件"
+      }
+    },
+    {
+      "componentName": "ErrorBoundary",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { ErrorBoundary } from 'common-components';",
+        "reason": "控制台 ErrorBoundary 会上报错误到内部监控系统"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ErrorBoundary } from '@ucloud/pro-components';",
+        "reason": "通用错误边界"
+      }
+    },
+    {
+      "componentName": "Code",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { Code } from 'common-components';",
+        "reason": "基于 CodeMirror，支持 js/shell/sql/nginx 等高亮，与控制台主题一致"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { Code } from '@ucloud/pro-components';",
+        "reason": "通用代码展示"
+      }
+    },
+    {
+      "componentName": "Progress",
+      "involvedLibraries": ["udesign", "udesign-pro"],
+      "console": {
+        "use": "udesign-pro",
+        "import": "import { Progress } from '@ucloud/pro-components';",
+        "reason": "Pro 版功能更丰富"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { Progress } from '@ucloud/pro-components';",
+        "reason": "Pro 版功能更丰富"
+      },
+      "note": "两个环境都优先用 Pro"
+    },
+    {
+      "componentName": "TreeSelect",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "useMap": {
+          "表单内使用": {
+            "use": "common-components",
+            "import": "import { Tree } from 'common-components/lib/FormComponents';",
+            "when": "在 common-components Form 表单内使用树选择"
+          },
+          "独立使用": {
+            "use": "udesign-pro",
+            "import": "import { TreeSelect } from '@ucloud/pro-components';",
+            "when": "不在表单内，独立使用树选择器"
+          }
+        }
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { TreeSelect } from '@ucloud/pro-components';",
+        "reason": "通用树选择器"
+      }
+    },
+    {
+      "componentName": "BatchModal_vs_ProBatchModal",
+      "displayName": "批量操作弹窗",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { BatchModal } from 'common-components';",
+        "reason": "BatchModal 绑定控制台批量操作逻辑（helper 回调），与 queryService 深度集成"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProBatchModal } from '@ucloud/pro-components';",
+        "reason": "通用批量操作弹窗，不依赖控制台框架"
+      }
+    },
+    {
+      "componentName": "ModifyNameRemark_vs_NameRemark",
+      "displayName": "修改名称/备注",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { ModifyNameRemark } from 'common-components';",
+        "reason": "绑定控制台 API 调用逻辑"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { NameRemark } from '@ucloud/pro-components';",
+        "reason": "通用版"
+      }
+    },
+    {
+      "componentName": "ExportCSV_vs_ProExportBtn",
+      "displayName": "数据导出",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { ExportCSV } from 'common-components';",
+        "reason": "与控制台数据格式和 API 集成"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProExportBtn } from '@ucloud/pro-components';",
+        "reason": "更灵活的导出组件"
+      }
+    },
+    {
+      "componentName": "ProductRoutes_vs_ProductLayout",
+      "displayName": "产品路由/布局",
+      "involvedLibraries": ["udesign-pro", "common-components"],
+      "console": {
+        "use": "common-components",
+        "import": "import { ProductRoutes } from 'common-components';",
+        "reason": "ProductRoutes 绑定控制台权限位、globalUI、Tab 导航体系"
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProductLayout } from '@ucloud/pro-components';",
+        "reason": "通用产品布局"
+      }
+    },
+    {
+      "componentName": "Table_vs_ProTable",
+      "displayName": "表格",
+      "involvedLibraries": ["udesign", "udesign-pro"],
+      "console": {
+        "use": "udesign-pro",
+        "import": "import { ProTable } from '@ucloud/pro-components';",
+        "reason": "ProTable 内置搜索、分页、工具栏，开发效率更高",
+        "fallback": {
+          "use": "udesign",
+          "import": "import { Table } from '@ucloud-fe/react-components';",
+          "when": "只需极简表格、不需要搜索/工具栏时"
+        }
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProTable } from '@ucloud/pro-components';",
+        "reason": "功能最全的表格组件"
+      },
+      "note": "ProTable 和 UDesign Table 都可在控制台中使用（都不依赖控制台框架），看需求复杂度选择"
+    },
+    {
+      "componentName": "Card_vs_ProCard",
+      "displayName": "卡片",
+      "involvedLibraries": ["udesign", "udesign-pro"],
+      "console": {
+        "use": "udesign-pro",
+        "import": "import { ProCard } from '@ucloud/pro-components';",
+        "reason": "ProCard 支持分栏、折叠、标签页等增强功能",
+        "fallback": {
+          "use": "udesign",
+          "import": "import { Card } from '@ucloud-fe/react-components';",
+          "when": "只需简单容器卡片时"
+        }
+      },
+      "standalone": {
+        "use": "udesign-pro",
+        "import": "import { ProCard } from '@ucloud/pro-components';",
+        "reason": "功能更丰富"
+      }
+    }
+  ]
+}

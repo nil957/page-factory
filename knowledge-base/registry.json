@@ -1,0 +1,1357 @@
+{
+  "$schema": "./registry-schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-08",
+  "libraries": {
+    "udesign": {
+      "name": "UDesign",
+      "package": "@ucloud-fe/react-components",
+      "install": "npm install @ucloud-fe/react-components",
+      "importPattern": "import { ComponentName } from '@ucloud-fe/react-components';",
+      "directImportPattern": "import ComponentName from '@ucloud-fe/react-components/lib/components/ComponentName';",
+      "babelPluginImport": {
+        "libraryName": "@ucloud-fe/react-components",
+        "camel2DashComponentName": false,
+        "libraryDirectory": "lib/components"
+      },
+      "doc": "https://udesign.ucloud.cn",
+      "repo": "https://github.com/UCloud-FE/u-design",
+      "environment": "any",
+      "description": "UCloud 基础 UI 组件库，可在任意 React 项目中使用"
+    },
+    "udesign-pro": {
+      "name": "UDesign Pro",
+      "package": "@ucloud/pro-components",
+      "install": "npm install @ucloud/pro-components --registry=http://registry.npm.pre.ucloudadmin.com",
+      "subPackages": true,
+      "subPackagePattern": "@ucloud/pro-{name}",
+      "importPattern": "import { ComponentName } from '@ucloud/pro-components';",
+      "doc": "http://console-ops.page.ucloudadmin.com/pro-components/components",
+      "environment": "any",
+      "description": "基于 UDesign 的增强型组件库，可在任意 React 项目中使用，支持单独安装子包"
+    },
+    "common-components": {
+      "name": "Console Common Components",
+      "package": "common-components",
+      "install": "在 .console/dependences.js 中添加 'common-components'",
+      "importPattern": "import { ComponentName } from 'common-components';",
+      "doc": "https://console-test03.ucloudadmin.com/components-examples/common-components/",
+      "repo": "https://git.ucloudadmin.com/console/common-components",
+      "environment": "console-only",
+      "description": "控制台业务组件，依赖控制台框架（services, 登录态, 地域等），仅能在控制台项目中使用"
+    }
+  },
+
+  "categories": {
+    "general": "通用",
+    "layout": "布局",
+    "navigation": "导航",
+    "form": "表单 & 数据录入",
+    "form-selection": "表单 - 选择器",
+    "data-display": "数据展示",
+    "feedback": "反馈",
+    "modal-drawer": "弹窗 & 抽屉",
+    "copy-text": "复制 & 文本",
+    "payment": "支付 & 计费",
+    "network": "网络 & 云联网",
+    "log-audit": "日志 & 审计",
+    "error": "错误处理",
+    "i18n": "国际化",
+    "config": "配置 & 主题",
+    "auth": "认证 & 密码",
+    "export": "导出",
+    "notification": "通知 & 公告",
+    "route": "路由 & 导航",
+    "statistics": "统计数值"
+  },
+
+  "components": [
+    {
+      "name": "Button",
+      "library": "udesign",
+      "category": "general",
+      "import": "import { Button } from '@ucloud-fe/react-components';",
+      "description": "按钮组件，触发操作的行动点",
+      "keywords": ["按钮", "提交", "操作", "button", "click", "action"],
+      "hasConflict": false,
+      "docFile": "udesign/Button.md"
+    },
+    {
+      "name": "Icon",
+      "library": "udesign",
+      "category": "general",
+      "import": "import { Icon } from '@ucloud-fe/react-components';",
+      "description": "图标组件",
+      "keywords": ["图标", "icon"],
+      "hasConflict": false,
+      "docFile": "udesign/Icon.md"
+    },
+    {
+      "name": "Grid",
+      "library": "udesign",
+      "category": "layout",
+      "import": "import { Grid } from '@ucloud-fe/react-components';",
+      "description": "栅格布局，Row + Col",
+      "keywords": ["栅格", "布局", "grid", "row", "col", "column", "layout"],
+      "hasConflict": false,
+      "docFile": "udesign/Grid.md"
+    },
+    {
+      "name": "Layout",
+      "library": "udesign",
+      "category": "layout",
+      "import": "import { Layout } from '@ucloud-fe/react-components';",
+      "description": "页面布局组件",
+      "keywords": ["布局", "页面结构", "layout", "header", "sider", "content", "footer"],
+      "hasConflict": false,
+      "docFile": "udesign/Layout.md"
+    },
+    {
+      "name": "Box",
+      "library": "udesign",
+      "category": "layout",
+      "import": "import { Box } from '@ucloud-fe/react-components';",
+      "description": "盒子容器",
+      "keywords": ["盒子", "容器", "box", "container"],
+      "hasConflict": false,
+      "docFile": "udesign/Box.md"
+    },
+    {
+      "name": "Menu",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Menu } from '@ucloud-fe/react-components';",
+      "description": "菜单导航",
+      "keywords": ["菜单", "导航", "menu", "nav"],
+      "hasConflict": false,
+      "docFile": "udesign/Menu.md"
+    },
+    {
+      "name": "Nav",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Nav } from '@ucloud-fe/react-components';",
+      "description": "导航组件",
+      "keywords": ["导航", "nav", "navigation"],
+      "hasConflict": false,
+      "docFile": "udesign/Nav.md"
+    },
+    {
+      "name": "Breadcrumb",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Breadcrumb } from '@ucloud-fe/react-components';",
+      "description": "面包屑导航",
+      "keywords": ["面包屑", "breadcrumb", "路径"],
+      "hasConflict": false,
+      "docFile": "udesign/Breadcrumb.md"
+    },
+    {
+      "name": "Tabs",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Tabs } from '@ucloud-fe/react-components';",
+      "description": "标签页切换",
+      "keywords": ["标签页", "tab", "切换"],
+      "hasConflict": false,
+      "docFile": "udesign/Tabs.md"
+    },
+    {
+      "name": "Steps",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Steps } from '@ucloud-fe/react-components';",
+      "description": "步骤条",
+      "keywords": ["步骤", "步骤条", "steps", "wizard", "流程"],
+      "hasConflict": false,
+      "docFile": "udesign/Steps.md"
+    },
+    {
+      "name": "Pagination",
+      "library": "udesign",
+      "category": "navigation",
+      "import": "import { Pagination } from '@ucloud-fe/react-components';",
+      "description": "分页组件",
+      "keywords": ["分页", "翻页", "pagination"],
+      "hasConflict": false,
+      "docFile": "udesign/Pagination.md"
+    },
+    {
+      "name": "Input",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Input } from '@ucloud-fe/react-components';",
+      "description": "输入框",
+      "keywords": ["输入", "输入框", "input", "text"],
+      "hasConflict": false,
+      "docFile": "udesign/Input.md"
+    },
+    {
+      "name": "NumberInput",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { NumberInput } from '@ucloud-fe/react-components';",
+      "description": "数字输入框",
+      "keywords": ["数字", "数字输入", "number input"],
+      "hasConflict": false,
+      "docFile": "udesign/NumberInput.md"
+    },
+    {
+      "name": "Textarea",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Textarea } from '@ucloud-fe/react-components';",
+      "description": "多行文本输入",
+      "keywords": ["文本域", "多行输入", "textarea"],
+      "hasConflict": false,
+      "docFile": "udesign/Textarea.md"
+    },
+    {
+      "name": "Select",
+      "library": "udesign",
+      "category": "form-selection",
+      "import": "import { Select } from '@ucloud-fe/react-components';",
+      "description": "下拉选择器",
+      "keywords": ["选择", "下拉", "select", "dropdown"],
+      "hasConflict": false,
+      "docFile": "udesign/Select.md"
+    },
+    {
+      "name": "AutoComplete",
+      "library": "udesign",
+      "category": "form-selection",
+      "import": "import { AutoComplete } from '@ucloud-fe/react-components';",
+      "description": "自动补全输入框",
+      "keywords": ["自动补全", "autocomplete", "搜索输入"],
+      "hasConflict": false,
+      "docFile": "udesign/AutoComplete.md"
+    },
+    {
+      "name": "Cascader",
+      "library": "udesign",
+      "category": "form-selection",
+      "import": "import { Cascader } from '@ucloud-fe/react-components';",
+      "description": "级联选择器",
+      "keywords": ["级联", "cascader", "多级选择"],
+      "hasConflict": false,
+      "docFile": "udesign/Cascader.md"
+    },
+    {
+      "name": "DatePicker",
+      "library": "udesign",
+      "category": "form-selection",
+      "import": "import { DatePicker } from '@ucloud-fe/react-components';",
+      "description": "日期选择器",
+      "keywords": ["日期", "date", "日期选择"],
+      "hasConflict": false,
+      "docFile": "udesign/DatePicker.md"
+    },
+    {
+      "name": "TimePicker",
+      "library": "udesign",
+      "category": "form-selection",
+      "import": "import { TimePicker } from '@ucloud-fe/react-components';",
+      "description": "时间选择器",
+      "keywords": ["时间", "time", "时间选择"],
+      "hasConflict": false,
+      "docFile": "udesign/TimePicker.md"
+    },
+    {
+      "name": "Checkbox",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Checkbox } from '@ucloud-fe/react-components';",
+      "description": "复选框",
+      "keywords": ["复选", "勾选", "checkbox", "多选"],
+      "hasConflict": false,
+      "docFile": "udesign/Checkbox.md"
+    },
+    {
+      "name": "Radio",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Radio } from '@ucloud-fe/react-components';",
+      "description": "单选框",
+      "keywords": ["单选", "radio"],
+      "hasConflict": false,
+      "docFile": "udesign/Radio.md"
+    },
+    {
+      "name": "Switch",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Switch } from '@ucloud-fe/react-components';",
+      "description": "开关切换",
+      "keywords": ["开关", "switch", "toggle"],
+      "hasConflict": false,
+      "docFile": "udesign/Switch.md"
+    },
+    {
+      "name": "Slider",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Slider } from '@ucloud-fe/react-components';",
+      "description": "滑动条",
+      "keywords": ["滑动", "slider", "range"],
+      "hasConflict": false,
+      "docFile": "udesign/Slider.md"
+    },
+    {
+      "name": "Upload",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Upload } from '@ucloud-fe/react-components';",
+      "description": "文件上传组件",
+      "keywords": ["上传", "upload", "文件"],
+      "hasConflict": false,
+      "docFile": "udesign/Upload.md"
+    },
+    {
+      "name": "Transfer",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Transfer } from '@ucloud-fe/react-components';",
+      "description": "穿梭框",
+      "keywords": ["穿梭框", "transfer", "双列选择"],
+      "hasConflict": false,
+      "docFile": "udesign/Transfer.md"
+    },
+    {
+      "name": "Form",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { Form } from '@ucloud-fe/react-components';",
+      "description": "基础表单容器组件",
+      "keywords": ["表单", "form"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Form", "udesign-pro/ProForm"],
+      "docFile": "udesign/Form.md"
+    },
+    {
+      "name": "ZForm",
+      "library": "udesign",
+      "category": "form",
+      "import": "import { ZForm } from '@ucloud-fe/react-components';",
+      "description": "高级表单（UDesign 内置增强版）",
+      "keywords": ["高级表单", "zform"],
+      "hasConflict": false,
+      "docFile": "udesign/ZForm.md"
+    },
+    {
+      "name": "Table",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Table } from '@ucloud-fe/react-components';",
+      "description": "数据表格",
+      "keywords": ["表格", "table", "列表", "数据列表"],
+      "hasConflict": false,
+      "conflictWith": ["udesign-pro/ProTable"],
+      "docFile": "udesign/Table.md"
+    },
+    {
+      "name": "Tree",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Tree } from '@ucloud-fe/react-components';",
+      "description": "树形控件",
+      "keywords": ["树", "tree", "目录树", "层级"],
+      "hasConflict": false,
+      "docFile": "udesign/Tree.md"
+    },
+    {
+      "name": "Card",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Card } from '@ucloud-fe/react-components';",
+      "description": "卡片容器",
+      "keywords": ["卡片", "card"],
+      "hasConflict": false,
+      "conflictWith": ["udesign-pro/ProCard"],
+      "docFile": "udesign/Card.md"
+    },
+    {
+      "name": "Collapse",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Collapse } from '@ucloud-fe/react-components';",
+      "description": "折叠面板",
+      "keywords": ["折叠", "collapse", "手风琴", "accordion"],
+      "hasConflict": false,
+      "docFile": "udesign/Collapse.md"
+    },
+    {
+      "name": "Badge",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Badge } from '@ucloud-fe/react-components';",
+      "description": "徽标数字",
+      "keywords": ["徽标", "badge", "角标", "数字"],
+      "hasConflict": false,
+      "docFile": "udesign/Badge.md"
+    },
+    {
+      "name": "Tag",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Tag } from '@ucloud-fe/react-components';",
+      "description": "标签（基础展示用）",
+      "keywords": ["标签", "tag"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/Tag", "common-components/Tag"],
+      "docFile": "udesign/Tag.md"
+    },
+    {
+      "name": "Calendar",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Calendar } from '@ucloud-fe/react-components';",
+      "description": "日历",
+      "keywords": ["日历", "calendar"],
+      "hasConflict": false,
+      "docFile": "udesign/Calendar.md"
+    },
+    {
+      "name": "Progress",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Progress } from '@ucloud-fe/react-components';",
+      "description": "进度条（基础）",
+      "keywords": ["进度", "progress", "进度条"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/Progress"],
+      "docFile": "udesign/Progress.md"
+    },
+    {
+      "name": "Skeleton",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Skeleton } from '@ucloud-fe/react-components';",
+      "description": "骨架屏加载占位",
+      "keywords": ["骨架屏", "skeleton", "加载占位"],
+      "hasConflict": false,
+      "docFile": "udesign/Skeleton.md"
+    },
+    {
+      "name": "Tooltip",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Tooltip } from '@ucloud-fe/react-components';",
+      "description": "文字提示气泡",
+      "keywords": ["提示", "tooltip", "文字提示", "hover提示"],
+      "hasConflict": false,
+      "docFile": "udesign/Tooltip.md"
+    },
+    {
+      "name": "Popover",
+      "library": "udesign",
+      "category": "data-display",
+      "import": "import { Popover } from '@ucloud-fe/react-components';",
+      "description": "气泡卡片",
+      "keywords": ["气泡", "popover", "弹出卡片"],
+      "hasConflict": false,
+      "docFile": "udesign/Popover.md"
+    },
+    {
+      "name": "Modal",
+      "library": "udesign",
+      "category": "modal-drawer",
+      "import": "import { Modal } from '@ucloud-fe/react-components';",
+      "description": "基础弹窗",
+      "keywords": ["弹窗", "modal", "对话框", "dialog"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Modal"],
+      "docFile": "udesign/Modal.md"
+    },
+    {
+      "name": "Drawer",
+      "library": "udesign",
+      "category": "modal-drawer",
+      "import": "import { Drawer } from '@ucloud-fe/react-components';",
+      "description": "基础抽屉",
+      "keywords": ["抽屉", "drawer", "侧滑"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Drawer", "udesign-pro/ProDrawer"],
+      "docFile": "udesign/Drawer.md"
+    },
+    {
+      "name": "Message",
+      "library": "udesign",
+      "category": "feedback",
+      "import": "import { Message } from '@ucloud-fe/react-components';",
+      "description": "全局消息提示",
+      "keywords": ["消息", "message", "提示", "toast"],
+      "hasConflict": false,
+      "docFile": "udesign/Message.md"
+    },
+    {
+      "name": "Notice",
+      "library": "udesign",
+      "category": "notification",
+      "import": "import { Notice } from '@ucloud-fe/react-components';",
+      "description": "通知提醒（基础）",
+      "keywords": ["通知", "notice", "notification"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Notice"],
+      "docFile": "udesign/Notice.md"
+    },
+    {
+      "name": "Loading",
+      "library": "udesign",
+      "category": "feedback",
+      "import": "import { Loading } from '@ucloud-fe/react-components';",
+      "description": "加载中状态",
+      "keywords": ["加载", "loading", "spinner"],
+      "hasConflict": false,
+      "docFile": "udesign/Loading.md"
+    },
+    {
+      "name": "PopConfirm",
+      "library": "udesign",
+      "category": "feedback",
+      "import": "import { PopConfirm } from '@ucloud-fe/react-components';",
+      "description": "气泡确认框",
+      "keywords": ["确认", "popconfirm", "气泡确认", "二次确认"],
+      "hasConflict": false,
+      "docFile": "udesign/PopConfirm.md"
+    },
+    {
+      "name": "ActionList",
+      "library": "udesign",
+      "category": "general",
+      "import": "import { ActionList } from '@ucloud-fe/react-components';",
+      "description": "操作列表",
+      "keywords": ["操作列表", "action", "操作菜单"],
+      "hasConflict": false,
+      "docFile": "udesign/ActionList.md"
+    },
+    {
+      "name": "ConfigProvider",
+      "library": "udesign",
+      "category": "config",
+      "import": "import { ConfigProvider } from '@ucloud-fe/react-components';",
+      "description": "全局配置",
+      "keywords": ["全局配置", "config"],
+      "hasConflict": false,
+      "docFile": "udesign/ConfigProvider.md"
+    },
+    {
+      "name": "ThemeProvider",
+      "library": "udesign",
+      "category": "config",
+      "import": "import { ThemeProvider } from '@ucloud-fe/react-components';",
+      "description": "主题配置",
+      "keywords": ["主题", "theme"],
+      "hasConflict": false,
+      "docFile": "udesign/ThemeProvider.md"
+    },
+    {
+      "name": "LocaleProvider",
+      "library": "udesign",
+      "category": "i18n",
+      "import": "import { LocaleProvider } from '@ucloud-fe/react-components';",
+      "description": "国际化配置",
+      "keywords": ["国际化", "locale", "i18n"],
+      "hasConflict": false,
+      "docFile": "udesign/LocaleProvider.md"
+    },
+
+
+    {
+      "name": "AlertError",
+      "library": "udesign-pro",
+      "category": "error",
+      "import": "import { AlertError } from '@ucloud/pro-components';",
+      "description": "错误告警展示",
+      "keywords": ["错误", "告警", "alert", "error"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/AlertError.md"
+    },
+    {
+      "name": "Code",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { Code } from '@ucloud/pro-components';",
+      "description": "代码展示组件",
+      "keywords": ["代码", "code", "代码块", "代码高亮"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Code"],
+      "docFile": "udesign-pro/Code.md"
+    },
+    {
+      "name": "ConfigInfo",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ConfigInfo } from '@ucloud/pro-components';",
+      "description": "配置信息展示",
+      "keywords": ["配置", "信息", "config", "detail", "描述列表"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ConfigInfo.md"
+    },
+    {
+      "name": "Copy",
+      "library": "udesign-pro",
+      "category": "copy-text",
+      "import": "import { Copy } from '@ucloud/pro-components';",
+      "description": "复制功能组件",
+      "keywords": ["复制", "copy", "剪贴板"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Copy"],
+      "docFile": "udesign-pro/Copy.md"
+    },
+    {
+      "name": "DateTime",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { DateTime } from '@ucloud/pro-components';",
+      "description": "日期时间格式化展示",
+      "keywords": ["日期", "时间", "datetime", "时间戳", "格式化"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/DateTime.md"
+    },
+    {
+      "name": "DrawerForm",
+      "library": "udesign-pro",
+      "category": "modal-drawer",
+      "import": "import { DrawerForm } from '@ucloud/pro-components';",
+      "subPackage": "@ucloud/pro-form",
+      "description": "抽屉表单 — 在抽屉中内嵌完整表单",
+      "keywords": ["抽屉表单", "drawer form", "侧滑表单"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/DrawerForm.md"
+    },
+    {
+      "name": "LoginForm",
+      "library": "udesign-pro",
+      "category": "form",
+      "import": "import { LoginForm } from '@ucloud/pro-components';",
+      "subPackage": "@ucloud/pro-form",
+      "description": "登录表单页",
+      "keywords": ["登录", "login", "登录表单"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/LoginForm.md"
+    },
+    {
+      "name": "ModalForm",
+      "library": "udesign-pro",
+      "category": "modal-drawer",
+      "import": "import { ModalForm } from '@ucloud/pro-components';",
+      "subPackage": "@ucloud/pro-form",
+      "description": "弹窗表单 — 在弹窗中内嵌完整表单",
+      "keywords": ["弹窗表单", "modal form", "对话框表单"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ModalForm.md"
+    },
+    {
+      "name": "NameRemark",
+      "library": "udesign-pro",
+      "category": "form",
+      "import": "import { NameRemark } from '@ucloud/pro-components';",
+      "description": "名称/备注修改组件",
+      "keywords": ["名称", "备注", "修改名称", "remark", "rename"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/ModifyNameRemark"],
+      "docFile": "udesign-pro/NameRemark.md"
+    },
+    {
+      "name": "ProductLayout",
+      "library": "udesign-pro",
+      "category": "layout",
+      "import": "import { ProductLayout } from '@ucloud/pro-components';",
+      "description": "产品页面布局组件",
+      "keywords": ["产品布局", "页面布局", "layout", "产品路由"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/ProductRoutes"],
+      "docFile": "udesign-pro/ProductLayout.md"
+    },
+    {
+      "name": "Progress",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { Progress } from '@ucloud/pro-components';",
+      "description": "增强型进度条",
+      "keywords": ["进度", "progress", "进度条"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Progress"],
+      "docFile": "udesign-pro/Progress.md"
+    },
+    {
+      "name": "ProResult",
+      "library": "udesign-pro",
+      "category": "feedback",
+      "import": "import { ProResult } from '@ucloud/pro-components';",
+      "description": "结果反馈页（成功/失败/警告等）",
+      "keywords": ["结果", "result", "成功", "失败", "完成"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProResult.md"
+    },
+    {
+      "name": "ProTabs",
+      "library": "udesign-pro",
+      "category": "navigation",
+      "import": "import { ProTabs } from '@ucloud/pro-components';",
+      "description": "增强型标签页",
+      "keywords": ["标签页", "tab", "切换"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProTabs.md"
+    },
+    {
+      "name": "ResourceSelect",
+      "library": "udesign-pro",
+      "category": "form-selection",
+      "import": "import { ResourceSelect } from '@ucloud/pro-components';",
+      "description": "资源选择器",
+      "keywords": ["资源选择", "resource", "选择器"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ResourceSelect.md"
+    },
+    {
+      "name": "State",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { State } from '@ucloud/pro-components';",
+      "description": "状态标签展示（Running/Stopped等）",
+      "keywords": ["状态", "state", "status", "运行中", "已停止"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/State.md"
+    },
+    {
+      "name": "Tag",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { Tag } from '@ucloud/pro-components';",
+      "description": "增强型标签",
+      "keywords": ["标签", "tag"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Tag", "common-components/Tag"],
+      "docFile": "udesign-pro/Tag.md"
+    },
+    {
+      "name": "TextEllipsis",
+      "library": "udesign-pro",
+      "category": "copy-text",
+      "import": "import { TextEllipsis } from '@ucloud/pro-components';",
+      "description": "文本省略展示",
+      "keywords": ["省略", "ellipsis", "文本截断", "展开收起"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/TextEllipsis.md"
+    },
+    {
+      "name": "TreeSelect",
+      "library": "udesign-pro",
+      "category": "form-selection",
+      "import": "import { TreeSelect } from '@ucloud/pro-components';",
+      "description": "树形选择器",
+      "keywords": ["树选择", "tree select", "层级选择"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Form-Tree"],
+      "docFile": "udesign-pro/TreeSelect.md"
+    },
+    {
+      "name": "EmptyState",
+      "library": "udesign-pro",
+      "category": "feedback",
+      "import": "import { EmptyState } from '@ucloud/pro-components';",
+      "description": "缺省页/空状态",
+      "keywords": ["空状态", "缺省", "empty", "无数据", "no data"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/EmptyState.md"
+    },
+    {
+      "name": "ErrorBoundary",
+      "library": "udesign-pro",
+      "category": "error",
+      "import": "import { ErrorBoundary } from '@ucloud/pro-components';",
+      "description": "React 错误边界",
+      "keywords": ["错误边界", "error boundary", "崩溃捕获"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/ErrorBoundary"],
+      "docFile": "udesign-pro/ErrorBoundary.md"
+    },
+    {
+      "name": "Password",
+      "library": "udesign-pro",
+      "category": "auth",
+      "import": "import { Password } from '@ucloud/pro-components';",
+      "description": "密码输入框（支持强度显示）",
+      "keywords": ["密码", "password", "密码框"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/Password"],
+      "docFile": "udesign-pro/Password.md"
+    },
+    {
+      "name": "ProBatchModal",
+      "library": "udesign-pro",
+      "category": "modal-drawer",
+      "import": "import { ProBatchModal } from '@ucloud/pro-components';",
+      "description": "批量操作弹窗（通用版）",
+      "keywords": ["批量操作", "batch", "批量删除", "批量弹窗"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/BatchModal"],
+      "docFile": "udesign-pro/ProBatchModal.md"
+    },
+    {
+      "name": "ProCard",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ProCard } from '@ucloud/pro-components';",
+      "description": "高级卡片（支持分栏、折叠、标签页等）",
+      "keywords": ["卡片", "card", "高级卡片"],
+      "hasConflict": false,
+      "conflictWith": ["udesign/Card"],
+      "docFile": "udesign-pro/ProCard.md"
+    },
+    {
+      "name": "ProCardList",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ProCardList } from '@ucloud/pro-components';",
+      "description": "卡片列表",
+      "keywords": ["卡片列表", "card list", "网格列表"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProCardList.md"
+    },
+    {
+      "name": "ProDrawer",
+      "library": "udesign-pro",
+      "category": "modal-drawer",
+      "import": "import { ProDrawer } from '@ucloud/pro-components';",
+      "description": "高级抽屉",
+      "keywords": ["抽屉", "drawer", "侧滑面板"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Drawer", "common-components/Drawer"],
+      "docFile": "udesign-pro/ProDrawer.md"
+    },
+    {
+      "name": "ProDropDown",
+      "library": "udesign-pro",
+      "category": "general",
+      "import": "import { ProDropDown } from '@ucloud/pro-components';",
+      "description": "气泡选择器/下拉操作",
+      "keywords": ["下拉", "dropdown", "操作菜单", "气泡选择"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProDropDown.md"
+    },
+    {
+      "name": "ProExportBtn",
+      "library": "udesign-pro",
+      "category": "export",
+      "import": "import { ProExportBtn } from '@ucloud/pro-components';",
+      "description": "列表数据导出按钮",
+      "keywords": ["导出", "export", "下载", "csv", "excel"],
+      "hasConflict": true,
+      "conflictWith": ["common-components/ExportCSV"],
+      "docFile": "udesign-pro/ProExportBtn.md"
+    },
+    {
+      "name": "ProForm",
+      "library": "udesign-pro",
+      "category": "form",
+      "import": "import { ProForm } from '@ucloud/pro-components';",
+      "subPackage": "@ucloud/pro-form",
+      "description": "高级表单（含 StepsForm、QueryFilter 等子组件）",
+      "keywords": ["表单", "form", "高级表单", "查询表单", "步骤表单"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Form", "common-components/Form"],
+      "docFile": "udesign-pro/ProForm.md"
+    },
+    {
+      "name": "ProHovertip",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ProHovertip } from '@ucloud/pro-components';",
+      "description": "鼠标悬停提示",
+      "keywords": ["悬停", "hover", "提示", "tip"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProHovertip.md"
+    },
+    {
+      "name": "ProResources",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ProResources } from '@ucloud/pro-components';",
+      "description": "自定义展示数量的 DOM 列表",
+      "keywords": ["资源列表", "resources", "展示数量"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProResources.md"
+    },
+    {
+      "name": "ProStatistic",
+      "library": "udesign-pro",
+      "category": "statistics",
+      "import": "import { ProStatistic } from '@ucloud/pro-components';",
+      "description": "统计数值展示",
+      "keywords": ["统计", "数值", "statistic", "指标"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/ProStatistic.md"
+    },
+    {
+      "name": "ProTable",
+      "library": "udesign-pro",
+      "category": "data-display",
+      "import": "import { ProTable } from '@ucloud/pro-components';",
+      "description": "高级表格（内置搜索、分页、工具栏等）",
+      "keywords": ["表格", "table", "高级表格", "数据表格", "列表"],
+      "hasConflict": false,
+      "conflictWith": ["udesign/Table"],
+      "docFile": "udesign-pro/ProTable.md"
+    },
+    {
+      "name": "Typography",
+      "library": "udesign-pro",
+      "category": "copy-text",
+      "import": "import { Typography } from '@ucloud/pro-components';",
+      "description": "排版组件（标题、段落、文本等）",
+      "keywords": ["排版", "文字", "typography", "标题", "段落"],
+      "hasConflict": false,
+      "docFile": "udesign-pro/Typography.md"
+    },
+
+
+    {
+      "name": "Form",
+      "library": "common-components",
+      "category": "form",
+      "import": "import { Form, Area, Input, Submit } from 'common-components/lib/FormComponents';",
+      "description": "控制台表单系统（基于 react-hook-form，含 23 个子组件）",
+      "keywords": ["表单", "form", "表单提交", "数据录入"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Form", "udesign-pro/ProForm"],
+      "docFile": "common-components/Form.md",
+      "subComponents": [
+        "Form-Form", "Form-Area", "Form-AreaGroup", "Form-SubArea",
+        "Form-Input", "Form-NumberInput", "Form-Textarea",
+        "Form-Select", "Form-AutoComplete",
+        "Form-Checkbox", "Form-CheckboxGroup", "Form-RadioGroup",
+        "Form-Switch", "Form-DatePicker", "Form-DateRangePicker",
+        "Form-Password", "Form-ConfirmPassword",
+        "Form-Upload", "Form-Tree",
+        "Form-Submit", "Form-Collapse",
+        "Form-hooks", "Form-validators"
+      ]
+    },
+    {
+      "name": "RegionZone",
+      "library": "common-components",
+      "category": "form-selection",
+      "import": "import { RegionZone } from 'common-components';",
+      "description": "地域可用区选择器（控制台创建资源必备）",
+      "keywords": ["地域", "可用区", "region", "zone", "区域选择", "地区"],
+      "hasConflict": false,
+      "docFile": "common-components/RegionZone.md",
+      "notes": "必须提供 defaultValue 或 value"
+    },
+    {
+      "name": "ProjectSelect",
+      "library": "common-components",
+      "category": "form-selection",
+      "import": "import { ProjectSelect } from 'common-components';",
+      "description": "项目选择器",
+      "keywords": ["项目", "project", "项目选择"],
+      "hasConflict": false,
+      "docFile": "common-components/ProjectSelect.md"
+    },
+    {
+      "name": "Password",
+      "library": "common-components",
+      "category": "auth",
+      "import": "import { Password } from 'common-components';",
+      "description": "密码输入框（支持随机生成、强度显示）",
+      "keywords": ["密码", "password"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/Password"],
+      "docFile": "common-components/Password.md"
+    },
+    {
+      "name": "VerifyCodeForm",
+      "library": "common-components",
+      "category": "auth",
+      "import": "import { VerifyCodeForm } from 'common-components';",
+      "description": "手机/邮箱验证码表单",
+      "keywords": ["验证码", "verify", "短信", "邮箱验证"],
+      "hasConflict": false,
+      "docFile": "common-components/VerifyCodeForm.md"
+    },
+    {
+      "name": "Tag",
+      "library": "common-components",
+      "category": "form-selection",
+      "import": "import { Tag } from 'common-components';",
+      "description": "业务组选择器（非展示用标签）",
+      "keywords": ["业务组", "tag", "标签选择"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Tag", "udesign-pro/Tag"],
+      "docFile": "common-components/Tag.md"
+    },
+    {
+      "name": "BatchModal",
+      "library": "common-components",
+      "category": "modal-drawer",
+      "import": "import { BatchModal } from 'common-components';",
+      "description": "批量操作弹窗（控制台版，绑定控制台逻辑）",
+      "keywords": ["批量操作", "batch", "批量删除", "批量关机", "批量启动"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/ProBatchModal"],
+      "docFile": "common-components/BatchModal.md",
+      "notes": "handler 中必须调用 helper 方法"
+    },
+    {
+      "name": "Modal",
+      "library": "common-components",
+      "category": "modal-drawer",
+      "import": "import { Modal } from 'common-components';",
+      "description": "业务弹窗封装（带控制台样式）",
+      "keywords": ["弹窗", "modal", "对话框"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Modal"],
+      "docFile": "common-components/Modal.md"
+    },
+    {
+      "name": "Drawer",
+      "library": "common-components",
+      "category": "modal-drawer",
+      "import": "import { Drawer } from 'common-components';",
+      "description": "业务抽屉组件",
+      "keywords": ["抽屉", "drawer", "详情抽屉"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Drawer", "udesign-pro/ProDrawer"],
+      "docFile": "common-components/Drawer.md"
+    },
+    {
+      "name": "ModifyNameRemark",
+      "library": "common-components",
+      "category": "modal-drawer",
+      "import": "import { ModifyNameRemark } from 'common-components';",
+      "description": "修改名称/备注弹窗",
+      "keywords": ["修改名称", "修改备注", "rename", "remark"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/NameRemark"],
+      "docFile": "common-components/ModifyNameRemark.md"
+    },
+    {
+      "name": "ModifyPassword",
+      "library": "common-components",
+      "category": "auth",
+      "import": "import { ModifyPassword } from 'common-components';",
+      "description": "修改密码弹窗",
+      "keywords": ["修改密码", "改密码", "change password"],
+      "hasConflict": false,
+      "docFile": "common-components/ModifyPassword.md"
+    },
+    {
+      "name": "Copy",
+      "library": "common-components",
+      "category": "copy-text",
+      "import": "import { Copy } from 'common-components';",
+      "description": "复制功能（Copy.Icon 图标复制、Copy.withCopy HOC）",
+      "keywords": ["复制", "copy", "剪贴板", "拷贝"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/Copy"],
+      "docFile": "common-components/Copy.md"
+    },
+    {
+      "name": "ResourceId",
+      "library": "common-components",
+      "category": "data-display",
+      "import": "import { ResourceId } from 'common-components';",
+      "description": "资源 ID 展示（支持复制、标签）",
+      "keywords": ["资源ID", "resource id", "ID展示", "复制ID"],
+      "hasConflict": false,
+      "docFile": "common-components/ResourceId.md"
+    },
+    {
+      "name": "ResourceLabel",
+      "library": "common-components",
+      "category": "data-display",
+      "import": "import { ResourceLabel } from 'common-components';",
+      "description": "资源标签管理（表格增强、标签配置）",
+      "keywords": ["资源标签", "label", "标签管理"],
+      "hasConflict": false,
+      "docFile": "common-components/ResourceLabel.md"
+    },
+    {
+      "name": "Code",
+      "library": "common-components",
+      "category": "data-display",
+      "import": "import { Code } from 'common-components';",
+      "description": "代码展示/编辑器（基于 CodeMirror，支持多语言高亮）",
+      "keywords": ["代码", "code", "代码编辑", "代码高亮", "codemirror"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/Code"],
+      "docFile": "common-components/Code.md"
+    },
+    {
+      "name": "ProductRoutes",
+      "library": "common-components",
+      "category": "route",
+      "import": "import { ProductRoutes } from 'common-components';",
+      "description": "产品路由（Tab 导航、权限、globalUI）",
+      "keywords": ["产品路由", "路由", "tab导航", "产品页面"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/ProductLayout"],
+      "docFile": "common-components/ProductRoutes.md"
+    },
+    {
+      "name": "DocLink",
+      "library": "common-components",
+      "category": "route",
+      "import": "import { DocLink } from 'common-components';",
+      "description": "帮助文档链接",
+      "keywords": ["文档链接", "帮助", "doc link"],
+      "hasConflict": false,
+      "docFile": "common-components/DocLink.md"
+    },
+    {
+      "name": "Notice",
+      "library": "common-components",
+      "category": "notification",
+      "import": "import { Notice } from 'common-components';",
+      "description": "可记忆关闭状态的通知",
+      "keywords": ["通知", "notice", "提醒", "公告"],
+      "hasConflict": true,
+      "conflictWith": ["udesign/Notice"],
+      "docFile": "common-components/Notice.md"
+    },
+    {
+      "name": "ProductNotice",
+      "library": "common-components",
+      "category": "notification",
+      "import": "import { ProductNotice } from 'common-components';",
+      "description": "产品公告（WebSocket 推送）",
+      "keywords": ["产品公告", "公告", "websocket", "推送"],
+      "hasConflict": false,
+      "docFile": "common-components/ProductNotice.md"
+    },
+    {
+      "name": "NPS",
+      "library": "common-components",
+      "category": "feedback",
+      "import": "import { NPS } from 'common-components';",
+      "description": "用户满意度调研",
+      "keywords": ["满意度", "NPS", "调研", "评分"],
+      "hasConflict": false,
+      "docFile": "common-components/NPS.md"
+    },
+    {
+      "name": "ChargeInfo",
+      "library": "common-components",
+      "category": "payment",
+      "import": "import { ChargeInfo } from 'common-components';",
+      "description": "支付信息（预付费、后付费、一次性、冻结支付）",
+      "keywords": ["支付", "计费", "价格", "付费", "charge", "price"],
+      "hasConflict": false,
+      "docFile": "common-components/ChargeInfo.md"
+    },
+    {
+      "name": "Purchase",
+      "library": "common-components",
+      "category": "payment",
+      "import": "import { Purchase } from 'common-components';",
+      "description": "支付确认页（订单确认、代金券、执行支付）",
+      "keywords": ["支付确认", "购买", "订单", "代金券", "purchase"],
+      "hasConflict": false,
+      "docFile": "common-components/Purchase.md"
+    },
+    {
+      "name": "ProductPrice",
+      "library": "common-components",
+      "category": "payment",
+      "import": "import { ProductPrice } from 'common-components';",
+      "description": "产品定价链接",
+      "keywords": ["定价", "价格", "product price"],
+      "hasConflict": false,
+      "docFile": "common-components/ProductPrice.md"
+    },
+    {
+      "name": "ExportCSV",
+      "library": "common-components",
+      "category": "export",
+      "import": "import { ExportCSV } from 'common-components';",
+      "description": "导出 CSV 文件",
+      "keywords": ["导出", "CSV", "export", "下载"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/ProExportBtn"],
+      "docFile": "common-components/ExportCSV.md"
+    },
+    {
+      "name": "Ulog",
+      "library": "common-components",
+      "category": "log-audit",
+      "import": "import { Ulog } from 'common-components';",
+      "description": "操作日志组件",
+      "keywords": ["日志", "操作日志", "ulog", "log", "审计"],
+      "hasConflict": false,
+      "docFile": "common-components/Ulog.md"
+    },
+    {
+      "name": "ErrorBoundary",
+      "library": "common-components",
+      "category": "error",
+      "import": "import { ErrorBoundary } from 'common-components';",
+      "description": "错误边界（控制台版）",
+      "keywords": ["错误边界", "error boundary"],
+      "hasConflict": true,
+      "conflictWith": ["udesign-pro/ErrorBoundary"],
+      "docFile": "common-components/ErrorBoundary.md"
+    },
+    {
+      "name": "IAMError",
+      "library": "common-components",
+      "category": "error",
+      "import": "import { IAMError } from 'common-components';",
+      "description": "IAM 权限错误提示（RetCode 299）",
+      "keywords": ["权限错误", "IAM", "403", "无权限"],
+      "hasConflict": false,
+      "docFile": "common-components/IAMError.md"
+    },
+    {
+      "name": "Locale",
+      "library": "common-components",
+      "category": "i18n",
+      "import": "import { Locale } from 'common-components';",
+      "description": "国际化组件（支持标签插值）",
+      "keywords": ["国际化", "locale", "多语言", "i18n"],
+      "hasConflict": false,
+      "docFile": "common-components/Locale.md"
+    },
+    {
+      "name": "ParseTextLink",
+      "library": "common-components",
+      "category": "i18n",
+      "import": "import { ParseTextLink } from 'common-components';",
+      "description": "解析带链接的国际化文本",
+      "keywords": ["文本链接", "国际化链接", "parse link"],
+      "hasConflict": false,
+      "docFile": "common-components/ParseTextLink.md"
+    },
+    {
+      "name": "LoginConfig",
+      "library": "common-components",
+      "category": "auth",
+      "import": "import { LoginConfig } from 'common-components';",
+      "description": "登录方式配置（密码、密钥）",
+      "keywords": ["登录配置", "登录方式", "密钥", "login config"],
+      "hasConflict": false,
+      "docFile": "common-components/LoginConfig.md"
+    },
+    {
+      "name": "hooks",
+      "library": "common-components",
+      "category": "general",
+      "import": "import { useProject, useRegion, useDrawer } from 'common-components';",
+      "description": "公共 Hooks（useProject、useRegion、useDrawer 等）",
+      "keywords": ["hooks", "useProject", "useRegion", "useDrawer"],
+      "hasConflict": false,
+      "docFile": "common-components/hooks.md"
+    },
+    {
+      "name": "AssociationUGN",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { AssociationUGN } from 'common-components';",
+      "description": "云联网关联管理（来自 unet-components）",
+      "keywords": ["云联网", "UGN", "关联", "网络"],
+      "hasConflict": false,
+      "docFile": "common-components/AssociationUGN.md"
+    },
+    {
+      "name": "EipCreate",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { EipCreate } from 'common-components';",
+      "description": "弹性IP创建表单（线路、计费、带宽）— 来自 unet-components",
+      "keywords": ["弹性IP", "EIP", "外网IP", "公网IP"],
+      "hasConflict": false,
+      "docFile": "common-components/EipCreate.md"
+    },
+    {
+      "name": "FirewallSelect",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { FirewallSelect } from 'common-components';",
+      "description": "防火墙选择器 — 来自 unet-components",
+      "keywords": ["防火墙", "firewall", "安全组"],
+      "hasConflict": false,
+      "docFile": "common-components/FirewallSelect.md"
+    },
+    {
+      "name": "FirewallUpdate",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { FirewallUpdate } from 'common-components';",
+      "description": "更换防火墙弹窗（单个/批量）— 来自 unet-components",
+      "keywords": ["更换防火墙", "firewall update"],
+      "hasConflict": false,
+      "docFile": "common-components/FirewallUpdate.md"
+    },
+    {
+      "name": "GlobalSSH",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { GlobalSSH } from 'common-components';",
+      "description": "全球加速SSH/RDP套件（创建、修改、升级）— 来自 unet-components",
+      "keywords": ["全球加速", "SSH", "RDP", "GlobalSSH"],
+      "hasConflict": false,
+      "docFile": "common-components/GlobalSSH.md"
+    },
+    {
+      "name": "IPv6Manage",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { IPv6Manage } from 'common-components';",
+      "description": "IPv6地址管理（分配、释放）— 来自 unet-components",
+      "keywords": ["IPv6", "IP地址", "IP管理"],
+      "hasConflict": false,
+      "docFile": "common-components/IPv6Manage.md"
+    },
+    {
+      "name": "SSLCreate",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { SSLCreate } from 'common-components';",
+      "description": "SSL证书创建/导入 — 来自 unet-components",
+      "keywords": ["SSL", "证书", "HTTPS", "SSL证书"],
+      "hasConflict": false,
+      "docFile": "common-components/SSLCreate.md"
+    },
+    {
+      "name": "SafetyRules",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { SafetyRules } from 'common-components';",
+      "description": "安全规则管理（防火墙/安全组配置、切换）— 来自 unet-components",
+      "keywords": ["安全规则", "防火墙规则", "安全组规则"],
+      "hasConflict": false,
+      "docFile": "common-components/SafetyRules.md"
+    },
+    {
+      "name": "Subnet",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { Subnet } from 'common-components';",
+      "description": "子网选择器（单选/多选）— 来自 unet-components",
+      "keywords": ["子网", "subnet", "网段"],
+      "hasConflict": false,
+      "docFile": "common-components/Subnet.md"
+    },
+    {
+      "name": "Unetwork",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { Unetwork } from 'common-components';",
+      "description": "IP信息展示（内网/外网/IPv6格式化）— 来自 unet-components",
+      "keywords": ["IP展示", "网络信息", "内网", "外网"],
+      "hasConflict": false,
+      "docFile": "common-components/Unetwork.md"
+    },
+    {
+      "name": "VPC",
+      "library": "common-components",
+      "category": "network",
+      "import": "import { VPC } from 'common-components';",
+      "description": "VPC选择器（与 Subnet 联动）— 来自 unet-components",
+      "keywords": ["VPC", "私有网络", "虚拟网络"],
+      "hasConflict": false,
+      "docFile": "common-components/VPC.md"
+    }
+  ]
+}
