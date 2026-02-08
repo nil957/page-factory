@@ -12,7 +12,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const project = await prisma.project.findFirst({ where: { id, userId: session.userId }, include: { conversations: { orderBy: { createdAt: 'desc' }, take: 1, include: { messages: { orderBy: { createdAt: 'asc' } } } } } })
     if (!project) return NextResponse.json({ error: '项目不存在' }, { status: 404 })
     const conversation = project.conversations[0]
-    return NextResponse.json({ messages: conversation?.messages.map(m => ({ role: m.role, content: m.content })) || [] })
+    const messages = conversation?.messages?.map(m => ({ role: m.role, content: m.content })) ?? []
+    return NextResponse.json({ messages })
   } catch (error) { console.error('Get chat error:', error); return NextResponse.json({ error: '获取聊天记录失败' }, { status: 500 }) }
 }
 
