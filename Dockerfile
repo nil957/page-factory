@@ -50,7 +50,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy knowledge-base data files for runtime AI context
 COPY --from=builder --chown=nextjs:nodejs /app/knowledge-base ./knowledge-base
 
-# Copy Prisma client
+# Copy Prisma schema and client for migrations
+COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
