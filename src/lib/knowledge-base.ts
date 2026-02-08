@@ -172,9 +172,44 @@ export function buildComponentContext(
   return context;
 }
 
+interface PatternEntry {
+  project: string;
+  filePath: string;
+  imports: Array<{ source: string; components: string[] }>;
+  componentCombination: string[];
+}
+
+let _patterns: PatternEntry[] | null = null;
+
+function loadPatterns(): PatternEntry[] {
+  if (_patterns) return _patterns;
+  try {
+    _patterns = JSON.parse(fs.readFileSync(path.join(KB_DIR, 'patterns', 'console-patterns.json'), 'utf8'));
+    return _patterns!;
+  } catch {
+    return [];
+  }
+}
+
+export function getPatternExamples(componentNames: string[], limit = 3): PatternEntry[] {
+  const patterns = loadPatterns();
+  const nameSet = new Set(componentNames.map(n => n.toLowerCase()));
+
+  return patterns
+    .map(p => ({
+      pattern: p,
+      score: p.componentCombination.filter(c => nameSet.has(c.toLowerCase())).length
+    }))
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(s => s.pattern);
+}
+
 // Clear cache (for hot-reload in dev)
 export function clearCache(): void {
   _registry = null;
   _conflictRules = null;
   _pageTemplates = null;
+  _patterns = null;
 }

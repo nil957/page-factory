@@ -3,7 +3,7 @@ import { getSession } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { readProjectFile, writeProjectFile, listProjectFiles } from '@/lib/git'
 import Anthropic from '@anthropic-ai/sdk'
-import { searchComponents, getComponentDoc, buildComponentContext } from '@/lib/knowledge-base'
+import { searchComponents, getComponentDoc, buildComponentContext, getPatternExamples } from '@/lib/knowledge-base'
 
 const LOOKUP_COMPONENT_TOOL: Anthropic.Tool = {
   name: 'lookup_component',
@@ -42,6 +42,14 @@ function buildSystemPrompt(
     ? buildComponentContext(relevantComponents, projectType)
     : '暂无匹配的组件，可使用 lookup_component 工具查询。'
 
+  const componentNames = relevantComponents.map(c => c.name)
+  const patterns = getPatternExamples(componentNames, 3)
+  const patternContext = patterns.length > 0
+    ? patterns.map(p =>
+        `- ${p.project} / ${p.filePath}: 使用了 ${p.componentCombination.join(', ')}`
+      ).join('\n')
+    : ''
+
   return `你是 Page Factory AI 助手，帮助开发项目"${projectName}"（${projectType === 'console' ? '控制台' : '独立'}项目）。
 
 ## 项目文件
@@ -49,7 +57,7 @@ ${files.slice(0, 30).join(', ')}
 
 ## 可用组件
 ${componentContext}
-
+${patternContext ? `\n## 真实项目参考\n以下是控制台项目中类似组件组合的真实用法：\n${patternContext}\n` : ''}
 ## 规则
 1. 始终使用上面列出的组件和 import 语句
 2. 如果组件有冲突标记，严格按冲突规则使用
