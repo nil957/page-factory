@@ -176,7 +176,10 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     
     await prisma.message.create({ data: { conversationId: conversation.id, role: 'user', content: message } })
     
-    const anthropic = new Anthropic({ apiKey })
+    const anthropic = new Anthropic({
+      apiKey,
+      baseURL: process.env.ANTHROPIC_BASE_URL || undefined,
+    })
     const conversationId = conversation.id
     const localPath = project.localPath
 
@@ -196,8 +199,10 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
           while (needsMoreIterations && iterations <= MAX_TOOL_ITERATIONS) {
             needsMoreIterations = false
 
+            const modelId = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5-20250929'
+
             const messageStream = anthropic.messages.stream({
-              model: 'claude-sonnet-4-20250514',
+              model: modelId,
               max_tokens: 4096,
               system: systemPrompt,
               messages: historyMessages,

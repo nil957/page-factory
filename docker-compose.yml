@@ -9,6 +9,7 @@ services:
       - DATABASE_URL=postgresql://silicon:silicon_dev_pwd@sf-postgres:5432/page_factory?schema=public
       - JWT_SECRET=pf-jwt-secret-2026-production-key
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-https://api.modelverse.cn}
       - GITLAB_URL=${GITLAB_URL:-https://git.ucloudadmin.com}
       - GITLAB_TOKEN=${GITLAB_TOKEN}
       - PROJECTS_DIR=/app/projects
