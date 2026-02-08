@@ -24,8 +24,9 @@ export default function SettingsPage() {
         return;
       }
       const data = await res.json();
-      setGitlabUrl(data.gitlab_url || '');
-      setGitlabToken(data.gitlab_token || '');
+      const s = data.settings || data;
+      setGitlabUrl(s.gitlabUrl || s.gitlab_url || '');
+      setGitlabToken(s.gitlabAccessToken || s.gitlab_token || '');
     } catch (error) {
       console.error('Failed to fetch settings:', error);
     }
@@ -42,11 +43,11 @@ export default function SettingsPage() {
 
     try {
       const res = await fetch('/api/settings', {
-        method: 'POST',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          gitlab_url: gitlabUrl,
-          gitlab_token: gitlabToken,
+          gitlabUrl: gitlabUrl,
+          gitlabAccessToken: gitlabToken,
         }),
       });
 

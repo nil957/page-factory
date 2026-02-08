@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     await prisma.settings.create({ data: { userId: user.id } })
     const token = await signToken({ userId: user.id, username: user.username })
     const response = NextResponse.json({ user: { id: user.id, username: user.username } })
-    response.cookies.set('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', maxAge: 60 * 60 * 24 * 7 })
+    response.cookies.set('token', token, { httpOnly: true, secure: process.env.COOKIE_SECURE === 'true', sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24 * 7 })
     return response
   } catch (error) { console.error('Registration error:', error); return NextResponse.json({ error: '注册失败' }, { status: 500 }) }
 }

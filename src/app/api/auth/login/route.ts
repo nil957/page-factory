@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     if (!isValid) return NextResponse.json({ error: '用户名或密码错误' }, { status: 401 })
     const token = await signToken({ userId: user.id, username: user.username })
     const response = NextResponse.json({ user: { id: user.id, username: user.username } })
-    response.cookies.set('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', maxAge: 60 * 60 * 24 * 7 })
+    response.cookies.set('token', token, { httpOnly: true, secure: process.env.COOKIE_SECURE === 'true', sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24 * 7 })
     return response
   } catch (error) { console.error('Login error:', error); return NextResponse.json({ error: '登录失败' }, { status: 500 }) }
 }
